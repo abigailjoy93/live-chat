@@ -1,0 +1,29 @@
+{
+  "name": "live-chat-app",
+  "version": "1.0.0",
+  "description": "a live chat application that integrates user profiles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abigailjoy93/live-chat.git"
+  },
+  "keywords": [
+    "live",
+    "chat",
+    "social"
+  ],
+  "author": "Coolest Group",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abigailjoy93/live-chat/issues"
+  },
+  "homepage": "https://github.com/abigailjoy93/live-chat#readme",
+  "dependencies": {
+    "express.js": "^1.0.0",
+    "mongoose": "^8.0.1",
+    "socket.io": "^4.7.2"
+  }
+}
