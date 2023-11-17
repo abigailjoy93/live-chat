@@ -27,9 +27,14 @@
   },
   "homepage": "https://github.com/abigailjoy93/live-chat#readme",
   "dependencies": {
+    "@apollo/server": "^4.9.5",
     "express": "^4.18.2",
     "express.js": "^1.0.0",
+    "graphql": "^16.8.1",
     "mongoose": "^8.0.1",
     "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
