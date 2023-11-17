@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "a live chat application that integrates user profiles",
   "main": "index.js",
-    "scripts": {
-      "start": "node server/server.js --ignore client",
-      "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
-      "install": "cd server && npm i && cd ../client && npm i",
-      "seed": "cd server && npm run seed",
-      "build": "cd client && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+  "scripts": {
+    "start": "node server/server.js --ignore client",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,5 @@
     "express.js": "^1.0.0",
     "mongoose": "^8.0.1",
     "socket.io": "^4.7.2"
-  },
+  }
 }
