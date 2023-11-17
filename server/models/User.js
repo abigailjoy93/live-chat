@@ -1,20 +1,38 @@
 const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 
-const profileSchema = new Schema({
-  name: {
+const userSchema = new Schema({
+  username: {
+    type: String,
+    unique: true,
+    required: true,
+    trim: true,
+  },
+  email: {
     type: String,
     required: true,
     unique: true,
-    trim: true,
+    match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/],
   },
-  skills: [
-    {
-      type: String,
-      trim: true,
-    },
-  ],
+  password: {
+    type: String,
+    required: true,
+  },
 });
 
-const Profile = model("Profile", profileSchema);
+userSchema.pre("save", async function (next) {
+  const user = this;
+  if (!user.isModified("password")) return next();
 
-module.exports = Profile;
+  try {
+    const hashedPassword = await bcrypt.hash(user.password, 10);
+    user.password = hashedPassword;
+    next();
+  } catch (error) {
+    return next(error);
+  }
+});
+
+const User = model("User", userSchema);
+
+module.exports = User;
