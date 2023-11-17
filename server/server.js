@@ -3,7 +3,7 @@ const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
 const path = require("path");
 const socketIo = require("socket.io");
-const mongoose = require("./config/mongoose");
+const mongoose = require("./config/connection");
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');

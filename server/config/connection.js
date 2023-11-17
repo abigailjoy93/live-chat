@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const uri = process.env.MONGODB_URI || "mongodb://localhost:27017";
 
 mongoose.connect(uri, {
-  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/tech-friends-ins-demo'
+  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/live_chat_db'
 });
 
 const db = mongoose.connection;
