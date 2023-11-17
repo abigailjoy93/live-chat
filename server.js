@@ -3,6 +3,9 @@ const http = require("http");
 const socketIo = require("socket.io");
 const mongoose = require("./mongoose");
 
+const { createServer } = require('node:http');
+
+//Express initializes app to be a function handler that you can supply to an HTTP server
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
