@@ -2,14 +2,11 @@
   "name": "live-chat-app",
   "version": "1.0.0",
   "description": "a live chat application that integrates user profiles",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node server/server.js --ignore client",
-    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "node seeders/seed.js",
-    "build": "cd client && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js --ignore client", 
+    "watch": "nodemon",
+    "seed": "node seeders/seed.js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +34,6 @@
     "socket.io": "^4.7.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.22"
   }
 }
