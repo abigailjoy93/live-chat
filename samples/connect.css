@@ -1,0 +1,16 @@
+:root {
+  --main: #bab0bd;
+  --accent: #72708f;
+  --text: #231f25;
+  --pop: #aacf9e;
+  --light: #eae7eb;
+  font-family: "Ysabeau Infant", sans-serif;
+  color: var(--pop);
+}
+
+button {
+  width: 75vw;
+  height: 10vh;
+  font-size: 35px;
+  margin-top: 50px;
+}

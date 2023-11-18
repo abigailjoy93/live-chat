@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="chatroom.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital,wght@0,1;0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,1;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+        <img class="logo" src="assets/live-chat-high-resolution-logo-transparent.png" alt="live chat logo"></img>
+    </div>
+    <!--CHATBOX START-->
+    <div>
+        <!--CHATBOX HEADER-->
+        <div class="chatbox-header">
+            <div class="card-header">
+                <h2>Live chat connection established!</h3>
+                <p class="header-text">Please remember that the person on the other side of the screen is a real person. Be kind, be respectful, be interesting.</p>
+                <p class="header-date"><!--TODO: DYNMAICALLY INPUT DATE-->November 18, 2023, 11:19 AM, CST</p>
+            </div>
+        </div>
+        <!--CHATBOX HEADER-->
+        <div class="chatbox-card">
+            <div class="card-body">
+                <!--TODO: DYNAMICALLY INPUT TEXT CONTENT-->
+                <!--Message examples-->
+                <!--RECEIVED MESSAGES-->
+                <div class="received-messages">
+                    <img class="avatar1" src="assets/person-circle.svg" alt="avatar for user 1">
+                    <div class="received-messages-inner">
+                        <div class="received-messages-body">
+                            <div class="received-messages-content">
+                                <!--MESSAGE 1-->
+                                <div class="received-messages-text">
+                                    <p>Hi! This is our first sample message.</p>
+                                </div>
+                                <!--TIMESTAMP-->
+                                <div class="received-messages-footer text-muted"><!--TODO: DYNAMICALLY MESSAGE TIMESTAMP-->November 18, 2023 at 11:50 am</div>
+                                <!--MESSAGE 2-->
+                                    <div class="received-messages-text">
+                                        <p>ladedadeda</p>
+                                    </div>
+                                <!--TIMESTAMP-->
+                                <div class="received-messages-footer text-muted"><!--TODO: DYNAMICALLY MESSAGE TIMESTAMP-->November 18, 2023 at 11:55 am</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--RECEIVED MESSAGES END-->
+                <!--SENT MESSAGES START-->
+                <div class="sent-messages">
+                    <img class="avatar2" src="assets/person-square.svg" alt="avatar for user 2">
+                    <div class="sent-messages-inner">
+                        <div class="sent-messages-body">
+                            <div class="sent-messages-content">
+                                <!--MESSAGE 1-->
+                                <div class="sent-messages-text">
+                                    <p>WOW! Look at us go.</p>
+                                </div>
+                                <!--TIMESTAMP-->
+                                <div class="sent-messages-footer text-muted"><!--TODO: DYNAMICALLY MESSAGE TIMESTAMP-->November 18, 2023 at 11:59 am</div>
+                                <!--MESSAGE 2-->
+                                <div class="sent-messages-text">
+                                    <p>What a time to be alive</p>
+                                </div>
+                                <!--TIMESTAMP-->
+                                <div class="sent-messages-footer text-muted"><!--TODO: DYNAMICALLY MESSAGE TIMESTAMP-->November 18, 2023 at 12:00 pm</div>
+                            </div>        
+                        </div>
+                <!--END OF MESSAGES-->
+                    </div>
+                </div>
+            </div>
+                <!--START TEXTBOX-->
+                <footer>        
+                    <card class="textbox">    
+                        <form class="textbox-form">
+                            <div class="input-group">
+                                <textarea class="form-control px-0" placeholder="Type your message..." rows="1" data-emoji-input="" data-autosize="true" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 47.2px;"></textarea>
+                            </div>
+                        </form>
+                    </card>
+                </footer>            
+        </div>
+    </div>        
+    </div>
+    <br>
+    <footer>
+
+    </footer>
+  </body>
+</html>
