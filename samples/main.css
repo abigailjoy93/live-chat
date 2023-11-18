@@ -1,0 +1,37 @@
+:root {
+  --main: #bab0bd;
+  --accent: #72708f;
+  --text: #231f25;
+  --pop: #aacf9e;
+  --light: #eae7eb;
+  font-family: "Ysabeau Infant", sans-serif;
+  color: var(--pop);
+}
+
+h1 {
+  font-size: 60px;
+}
+
+body {
+  background-color: #bab0bd;
+  color: var(--text);
+  text-align: center;
+  margin: 25px;
+}
+
+button {
+  background-color: var(--pop);
+  color: var(--text);
+  border: 2px solid var(--accent);
+  border-radius: 20px;
+  font-family: "Ysabeau Infant", sans-serif;
+  font-weight: 450;
+}
+
+.logo {
+  height: 250px;
+}
+
+footer {
+  margin: 100px;
+}
