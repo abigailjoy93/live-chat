@@ -23,10 +23,20 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUser: async ({ id, username, email }) => {
+    updateUserName: async ({ id, username}) => {
       const user = await User.findOneAndUpdate(
         { _id: id },
-        { $set: { username, email } },
+        { $set: { username} },
+        { new: true }
+      );
+
+      const token = signToken(user);
+      return { token, user };
+    },
+    updateUserEmail: async ({ id, email}) => {
+      const user = await User.findOneAndUpdate(
+        { _id: id },
+        { $set: { email} },
         { new: true }
       );
 
