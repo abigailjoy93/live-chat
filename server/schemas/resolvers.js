@@ -20,7 +20,32 @@ const resolvers = {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
+
       return { token, user };
+    },
+    updateUser: async ({ id, username, email }) => {
+      const user = await User.findOneAndUpdate(
+        { _id: id },
+        { $set: { username, email } },
+        { new: true }
+      );
+
+      const token = signToken(user);
+      return { token, user };
+    },
+    deleteUser: async ({ id }) => {
+      try {
+        const user = await User.findOneAndDelete({ _id: id });
+
+        if (!user) {
+          return { error: "User not found" };
+        }
+
+        const token = signToken(user);
+        return { token, user };
+      } catch (error) {
+        return { error: "Error deleting user" };
+      }
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
@@ -41,4 +66,5 @@ const resolvers = {
     },
   },
 };
+
 module.exports = resolvers;
