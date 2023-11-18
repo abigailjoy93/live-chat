@@ -1,9 +1,9 @@
 :root {
-  --main: #bab0bd;
-  --accent: #72708f;
-  --text: #231f25;
-  --pop: #aacf9e;
-  --light: #eae7eb;
+  --main: #e08d3c;
+  --accent: #3d0c02;
+  --text: #000000;
+  --pop: #f5deb3;
+  --light: #f4f0ec;
   font-family: "Ysabeau Infant", sans-serif;
   color: var(--pop);
 }
@@ -13,7 +13,10 @@ h1 {
 }
 
 body {
-  background-color: #bab0bd;
+  background-image: url("./assets/pexels-pixabay-207896.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--text);
   text-align: center;
   margin: 25px;
@@ -29,9 +32,16 @@ button {
 }
 
 .logo {
-  height: 250px;
+  position: fixed;
+  bottom: 0;
+  left: 40%;
+  height: 115px;
+  margin: 20px;
 }
 
 footer {
+  display: flex;
   margin: 100px;
+  padding: 80px;
+  justify-content: center;
 }

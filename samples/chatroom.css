@@ -1,100 +1,65 @@
 :root {
-  --main: #bab0bd;
-  --accent: #72708f;
-  --text: #231f25;
-  --pop: #aacf9e;
-  --light: #eae7eb;
+  --main: #e08d3c;
+  --accent: #3d0c02;
+  --text: #000000;
+  --pop: #f5deb3;
+  --light: #f4f0ec;
   font-family: "Ysabeau Infant", sans-serif;
   color: var(--pop);
 }
 
-.logo {
-  height: 25vh;
+body {
+  background-image: url("./assets/pexels-pixabay-207896.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text);
+  text-align: center;
+  margin: 25px;
+  padding-bottom: 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-.chatbox-header,
-.chatbox-card {
+#form {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.25rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 25px;
-  background-color: var(--light);
-  border: 5px solid var(--accent);
+  height: 3rem;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+}
+#input {
+  border: none;
+  padding: 0 1rem;
+  flex-grow: 1;
+  border-radius: 2rem;
+  margin: 0.25rem;
+}
+#input:focus {
+  outline: none;
+}
+#form > button {
+  background: #333;
+  border: none;
+  padding: 0 1rem;
+  margin: 0.25rem;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
 }
 
-.chatbox-card {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  height: 100vh;
-  padding: 25px;
-  background-color: var(--light);
-  border: 5px solid var(--accent);
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-
-.card-header {
-  height: auto;
+#messages > li {
+  padding: 0.5rem 1rem;
 }
-
-.header-text {
-  font-size: large;
-}
-
-.received-messages,
-.sent-messages {
-  display: flex;
-  align-items: last baseline;
-}
-
-.sent-messages {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.avatar1,
-.avatar2 {
-  height: 50px;
-  margin: 5px;
-}
-
-.received-messages-inner,
-.sent-messages-inner {
-  margin: 5px;
-  padding: 15px;
-}
-
-.received-messages-text {
-  background-color: var(--main);
-}
-
-.sent-messages-text {
-  background-color: var(--pop);
-}
-
-.received-messages-text,
-.sent-messages-text {
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-}
-
-.received-messages-footer {
-  margin-left: 15px;
-  text-align: left;
-}
-
-.sent-messages-footer {
-  margin-right: 15px;
-  text-align: right;
-}
-
-.received-messages-footer,
-.sent-messages-footer {
-  font-size: x-small;
-  color: var(--main);
-}
-
-.textbox {
-  width: 100vw;
-  border-top: var(--accent);
+#messages > li:nth-child(odd) {
+  background: #efefef;
 }
