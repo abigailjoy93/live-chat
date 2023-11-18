@@ -19,6 +19,6 @@ type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email:String!, password: String!):Auth
 }
-`;ddd
+`;
 
 module.exports = typeDefs;
