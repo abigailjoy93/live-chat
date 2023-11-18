@@ -12,17 +12,15 @@
   </head>
   <body>
     <header>
-      <div>
-        <div>
-          <img class="logo" src="assets/live-chat-high-resolution-logo-transparent.png" alt="live chat logo"></img>
-        </div>
-      </div>
+
     </header>
     <div class="container">
       <div class="box">
         <header></header>
         <form>
           <div class="form">
+            <br>
+            <br>
             <label class="boxtitle" for="box">Log On:</label>
             <br />
             <br />
@@ -47,11 +45,23 @@
         <form>
           <div class="form">
             <label class="boxtitle" for="box">Sign Up:</label>
-            <br />
-            <br />
+            <br>
+            <div class="form-group">
+              <label id="first-name-text" for="first-name">First name:</label>
+              <label id="last-name-text" for="last-name">Last name:</label>
+              <br>
+              <input type="text" class="form-control" id="first-name" />
+              <input type="text" class="form-control" id="last-name" />
+            </div>
+            <div class="form-group">
             <label class="email" for="email">Email address:</label>
             <br />
             <input type="email" class="form-control" id="email" />
+          </div>
+          <div class="form-group">
+            <label class="username" for="user">Username:</label>
+            <br />
+            <input type="password" class="form-control" id="pwd" />
           </div>
           <div class="form-group">
             <label class="password" for="pwd">Password:</label>
@@ -59,18 +69,24 @@
             <input type="password" class="form-control" id="pwd" />
           </div>
           <br />
-          <div class="checkbox">
+          <div class="requirements">
             <label class="requirements">Passwords must be at least 8 characters long, and contain at least one uppercase letter, lowercase letter, and number</label>
+          </div>
           </div>
           <br />
           <button type="submit" class="btn btn-default">Submit</button>
+          <br>
+          <br>
+          <br>
         </form>
       </div>
     </div>
     <footer>
-      <br>
-      <br>
-      <br>
+      <div>
+        <div>
+          <img class="logo" src="assets/live-chat-high-resolution-logo-transparent.png" alt="live chat logo"></img>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
