@@ -71,42 +71,85 @@ const Signup = () => {
     <main className="flex-row justify-center mb-">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">
-            Create a New Account
-          </h4>
+          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
           <div className="card-body">
             <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Username"
-                name="username"
-                type="string"
-                value={formState.username}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="Account email"
-                name="email"
-                type="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="******"
-                name="password"
-                type="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button
-                className="btn btn-block btn-primary"
-                style={{ cursor: "pointer" }}
-                type="submit"
-              >
-                Sign Up
-              </button>
+              <div className="form">
+                <label className="boxtitle" htmlFor="box">
+                  Sign Up:
+                </label>
+                <div className="form-group">
+                  <label id="first-name-text" htmlFor="first-name">
+                    First name:
+                  </label>
+                  <label id="last-name-text" htmlFor="last-name">
+                    Last name:
+                  </label>
+                  <br />
+                  <input type="text" className="form-control" id="first-name" />
+                  <input type="text" className="form-control" id="last-name" />
+                </div>
+                <div className="form-group">
+                  <label className="email" htmlFor="email">
+                    Email address:
+                  </label>
+                  <br />
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Account email"
+                    value={formState.email}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="username" htmlFor="user">
+                    Username:
+                  </label>
+                  <br />
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="user"
+                    name="username"
+                    placeholder="Username"
+                    value={formState.username}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="password" htmlFor="pwd">
+                    Password:
+                  </label>
+                  <br />
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="pwd"
+                    name="password"
+                    placeholder="******"
+                    value={formState.password}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="requirements">
+                  <label className="requirements">
+                    Passwords must be at least 8 characters long and contain at
+                    least one uppercase letter, lowercase letter, number, and at
+                    least one character from this set \[@ $ ! % * ? &\]
+                  </label>
+                </div>
+                <br />
+                <button
+                  type="submit"
+                  className="btn btn-default btn-block btn-primary"
+                  style={{ cursor: "pointer" }}
+                >
+                  Sign Up
+                </button>
+              </div>
             </form>
           </div>
         </div>
