@@ -1,13 +1,17 @@
 import React from "react";
-// import logo up here
-// import css if need be 
-
+import logoTransparent from "assets/live-chat-high-resolution-logo-transparent.png";
 function Footer() {
     return (
         <footer className=" footer text-center text-lg-start">
 
             <div className="container d-flex justify-content-center">
-                {/* what ever content we want to add here */}
+                <footer>
+                    <div>
+                        <div>
+                            <img class="logo" src={logoTransparent} alt="live chat logo"></img>
+                        </div>
+                    </div>
+                </footer>
             </div>
         </footer>
     );
