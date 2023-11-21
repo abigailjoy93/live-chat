@@ -6,15 +6,26 @@ const resolvers = {
     users: async () => {
       return User.find().populate("users");
     },
+
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate("users");
     },
+
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
       }
       throw AuthenticationError;
     },
+
+    // searchUsers: async (_, { query }) => {
+    //   try {
+    //     const users = await User.find({ username: { $regex: query, $options: 'i' } });
+    //     return users;
+    //   } catch (error) {
+    //     console.error(error);
+    //     throw new Error('Error searching users');
+    //   }
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -23,20 +34,20 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUserName: async ({ id, username}) => {
+    updateUserName: async ({ id, username }) => {
       const user = await User.findOneAndUpdate(
         { _id: id },
-        { $set: { username} },
+        { $set: { username } },
         { new: true }
       );
 
       const token = signToken(user);
       return { token, user };
     },
-    updateUserEmail: async ({ id, email}) => {
+    updateUserEmail: async ({ id, email }) => {
       const user = await User.findOneAndUpdate(
         { _id: id },
-        { $set: { email} },
+        { $set: { email } },
         { new: true }
       );
 

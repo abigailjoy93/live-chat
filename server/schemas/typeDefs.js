@@ -14,6 +14,8 @@ type Query {
     users: [User]
     user(username:String): User
     me: User
+    //   searchUsers(query: String!): [User]
+
 }
 type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
