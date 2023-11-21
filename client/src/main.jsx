@@ -19,20 +19,14 @@ const router = createBrowserRouter([
                 index: true,
                 element: <Home />
             }, {
-                path: '/login',
-                element: <Login />
-            }, {
-                path: '/signup',
-                element: <Signup />
+                path: '/Join',
+                element: <Join />
             }, {
                 path: '/profiles/:username',
                 element: <Profile />
             }, {
-                path: '/me',
-                element: <Profile />
-            }, {
-                path: '/thoughts/:thoughtId',
-                element: <SingleThought />
+                path: '/Chatroom',
+                element: <Chatroom />
             }
         ]
     },
