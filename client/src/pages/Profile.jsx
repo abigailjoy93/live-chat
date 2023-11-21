@@ -1,9 +1,10 @@
 //User Page
 
 // imports
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { useMutation } from '@apollo/client';
 import { UPDATE_USER_EMAIL, UPDATE_USER_NAME, DELETE_USER} from "../utils/mutations"
 import Auth from "../utils/auth";
 
@@ -17,7 +18,7 @@ const Profile = () => {
 
   const user = data?.me || data?.user || {};
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/me" />; //<-- make this go to profile page
+    return //<-- make this goes to profile page
   }
 
   if (loading) {
@@ -32,7 +33,7 @@ const Profile = () => {
     );
   }
 
-  return <div></div>;
+  return //<-- page here;
 };
 
 export default Profile;
