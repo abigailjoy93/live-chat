@@ -37,7 +37,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       {/* <-- app here */}
+      <div>
+        <Outlet />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </ApolloProvider>
+
   );
 }
 
