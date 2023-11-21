@@ -42,7 +42,9 @@ const Login = (props) => {
     <main className="flex-row justify-center mb-">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+          <h4 className="card-header bg-dark text-light p-2">
+            Login With Existing Account
+          </h4>
           <div className="card-body">
             <form onSubmit={handleFormSubmit}>
               <input
@@ -66,7 +68,7 @@ const Login = (props) => {
                 style={{ cursor: "pointer" }}
                 type="submit"
               >
-                Submit
+                Login
               </button>
             </form>
           </div>
