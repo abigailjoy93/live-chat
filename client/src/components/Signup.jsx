@@ -20,9 +20,40 @@ const Signup = () => {
     });
   };
 
+  const emailValidate = () => {
+    // Email validation using regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(formState.email);
+  };
+
+  const passwordValidate = () => {
+    // Password validation using regex
+
+    // This regex enforces the following rules:
+
+    // At least one uppercase letter
+    // At least one lowercase letter
+    // At least one digit
+    // At least one special character from the set [@ $ ! % * ? &]
+    // Minimum length of 8 characters
+
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(formState.password);
+  };
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+
+    if (!emailValidate()) {
+      console.log('Invalid email');
+      return;
+    }
+
+    if (!passwordValidate()) {
+      console.log('Invalid password');
+      return;
+    }
 
     try {
       const { data } = await addUser({
