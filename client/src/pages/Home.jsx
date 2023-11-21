@@ -2,7 +2,7 @@
 
 // imports
 import Signup from "../components/Signup";
-import Login from "../components/Signup";
+import Login from "../components/Login";
 
 // home page function
 const Home = () => {
