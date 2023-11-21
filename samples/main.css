@@ -1,0 +1,47 @@
+:root {
+  --main: #e08d3c;
+  --accent: #3d0c02;
+  --text: #000000;
+  --pop: #f5deb3;
+  --light: #f4f0ec;
+  font-family: "Ysabeau Infant", sans-serif;
+  color: var(--pop);
+}
+
+h1 {
+  font-size: 60px;
+}
+
+body {
+  background-image: url("./assets/pexels-pixabay-207896.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text);
+  text-align: center;
+  margin: 25px;
+}
+
+button {
+  background-color: var(--pop);
+  color: var(--text);
+  border: 2px solid var(--accent);
+  border-radius: 20px;
+  font-family: "Ysabeau Infant", sans-serif;
+  font-weight: 450;
+}
+
+.logo {
+  position: fixed;
+  bottom: 0;
+  left: 40%;
+  height: 115px;
+  margin: 20px;
+}
+
+footer {
+  display: flex;
+  margin: 100px;
+  padding: 80px;
+  justify-content: center;
+}

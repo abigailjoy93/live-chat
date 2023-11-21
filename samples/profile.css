@@ -1,0 +1,13 @@
+:root {
+  --main: #e08d3c;
+  --accent: #3d0c02;
+  --text: #000000;
+  --pop: #f5deb3;
+  --light: #f4f0ec;
+  font-family: "Ysabeau Infant", sans-serif;
+  color: var(--pop);
+}
+
+.aboutme {
+  background-color: var(--light);
+}

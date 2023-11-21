@@ -1,0 +1,73 @@
+:root {
+  --main: #e08d3c;
+  --accent: #3d0c02;
+  --text: #000000;
+  --pop: #f5deb3;
+  --light: #f4f0ec;
+  font-family: "Ysabeau Infant", sans-serif;
+  color: var(--pop);
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  height: 35px;
+  width: 100px;
+  font-size: 15px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  width: 35vw;
+  height: 52vh;
+  border: 5px solid var(--accent);
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  background-color: var(--light);
+}
+
+.form {
+  padding: 5px;
+}
+
+.boxtitle {
+  font-size: 32px;
+}
+
+#first-name,
+#last-name {
+  width: 15vw;
+}
+
+#first-name-text,
+#last-name-text {
+  margin: 75px;
+}
+
+.remember,
+.requirements {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.form-control {
+  height: 28px;
+  width: 30vw;
+  align-items: center;
+  border: 2px solid var(--pop);
+}
+
+.email,
+.password,
+.name,
+.username {
+  font-size: 15px;
+}
