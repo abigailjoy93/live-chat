@@ -39,23 +39,68 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Log On:</h4>
-          <div className="card-body">
+    <main
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        marginBottom: "var(--margin-bottom)",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "65rem",
+        }}
+      >
+        <div
+          style={{
+            border: "5px solid var(--accent)",
+            marginLeft: "25px",
+            marginRight: "25px",
+            marginBottom: "15px",
+            marginTop: "5px",
+            backgroundColor: "var(--light)",
+          }}
+        >
+          <h4
+            style={{
+              backgroundColor: "var(--accent)",
+              color: "var(--pop)",
+              padding: "0.5rem",
+              fontSize: "1.5rem",
+            }}
+          >
+            Log On:
+          </h4>
+          <div style={{ padding: "1rem" }}>
             <form onSubmit={handleFormSubmit}>
-              <div className="form">
-                <label className="boxtitle" htmlFor="box">
+              <div>
+                <label
+                  style={{
+                    fontSize: "1.2rem",
+                  }}
+                  htmlFor="box"
+                >
                   Log On:
                 </label>
                 <br />
-                <label className="email" htmlFor="email">
+                <label
+                  style={{
+                    fontSize: "1rem",
+                  }}
+                  htmlFor="email"
+                >
                   Email address:
                 </label>
                 <br />
                 <input
-                  className="form-input form-control"
+                  style={{
+                    height: "28px",
+                    width: "30vw",
+                    alignItems: "center",
+                    border: "2px solid var(--pop)",
+                  }}
                   placeholder="Your email"
                   name="email"
                   type="email"
@@ -63,28 +108,48 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <br />
-                <label className="password" htmlFor="pwd">
+                <label
+                  style={{
+                    fontSize: "1rem",
+                  }}
+                  htmlFor="pwd"
+                >
                   Password:
                 </label>
                 <br />
                 <input
-                  className="form-input form-control"
+                  style={{
+                    height: "28px",
+                    width: "30vw",
+                    alignItems: "center",
+                    border: "2px solid var(--pop)",
+                  }}
                   placeholder="******"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <div className="checkbox">
+                <div>
                   <br />
-                  <label className="remember">
+                  <label
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: "bold",
+                    }}
+                    className="remember"
+                  >
                     <input type="checkbox" /> Remember me
                   </label>
                 </div>
                 <br />
                 <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    height: "35px",
+                    width: "100px",
+                    fontSize: "15px",
+                    cursor: "pointer",
+                  }}
                   type="submit"
                 >
                   Login
@@ -96,6 +161,6 @@ const Login = (props) => {
       </div>
     </main>
   );
-};
+  
 
 export default Login;
