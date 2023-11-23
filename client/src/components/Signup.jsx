@@ -78,17 +78,6 @@ const Signup = () => {
               <label htmlFor="box" className="boxlabel">
                 Sign Up:
               </label>
-              <div className="name-inputs">
-                <label htmlFor="first-name" className="name-label">
-                  First name:
-                </label>
-                <label htmlFor="last-name" className="name-label">
-                  Last name:
-                </label>
-                <br />
-                <input type="text" className="form-control" id="first-name" />
-                <input type="text" className="form-control" id="last-name" />
-              </div>
               <div>
                 <label htmlFor="email" className="email">
                   Email address:

@@ -11,6 +11,8 @@ import { setContext } from "@apollo/client/link/context";
 // import viteLogo from '/vite.svg'
 import "./App.css";
 import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer";
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -42,7 +44,7 @@ function App() {
     <ApolloProvider client={client}>
 
       <Outlet />
-
+      <Footer />
     </ApolloProvider>
   );
 }
