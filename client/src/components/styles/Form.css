@@ -9,8 +9,26 @@
   color: var(--pop);
 }
 
-body {
-  margin: 0;
+.searchbox {
+  position: absolute;
+  right: 45px;
+  top: 3px;
+}
+
+.searchtext {
+  height: 25px;
+  width: 250px;
+  margin-right: 5px;
+}
+
+.searchbutton {
+  height: 25px;
+  position: absolute;
+  right: 1px;
+  top: 3px;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
 }
 
 button {
@@ -19,9 +37,19 @@ button {
   font-size: 15px;
 }
 
+.logo {
+  height: 22vh;
+  position: absolute;
+  left: 645px;
+  top: 100px;
+}
+
 .container {
   display: flex;
   justify-content: center;
+  margin-top: -175px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 
 .box {
