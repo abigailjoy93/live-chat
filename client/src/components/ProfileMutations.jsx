@@ -1,8 +1,18 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
-import { UPDATE_USER_EMAIL, UPDATE_USER_NAME, DELETE_USER } from "../utils/mutations";
+import {
+  UPDATE_USER_EMAIL,
+  UPDATE_USER_NAME,
+  DELETE_USER,
+} from "../utils/mutations";
 
-const UpdateUserEmail = () => {
+// update user email
+const UpdateUserEmail = ({ userId }) => {
+  const [formState] = useState({
+    email: "",
+    password: "",
+  });
+
   const [updateUserMutation, { loading, error }] =
     useMutation(UPDATE_USER_EMAIL);
 
@@ -10,10 +20,10 @@ const UpdateUserEmail = () => {
     try {
       const { data } = await updateUserMutation({
         variables: {
-          // variables
-          userId: "123",
+          ...formState,
+          _id: userId,
           newUserData: {
-            // updated data
+            email: "",
           },
         },
       });
@@ -35,7 +45,13 @@ const UpdateUserEmail = () => {
   );
 };
 
-const UpdateUserName = () => {
+// update user name
+const UpdateUserName = ({ userId }) => {
+  const [formState] = useState({
+    username: "",
+    password: "",
+  });
+
   const [updateUserMutation, { loading, error }] =
     useMutation(UPDATE_USER_NAME);
 
@@ -43,10 +59,10 @@ const UpdateUserName = () => {
     try {
       const { data } = await updateUserMutation({
         variables: {
-          // variables
-          userId: "123",
+          ...formState,
+          _id: userId,
           newUserData: {
-            // updated data
+            username: "",
           },
         },
       });
@@ -68,6 +84,7 @@ const UpdateUserName = () => {
   );
 };
 
+// delete user
 const DeleteUser = ({ userId }) => {
   const [deleteUserMutation, { loading, error }] = useMutation(DELETE_USER);
 
@@ -75,7 +92,7 @@ const DeleteUser = ({ userId }) => {
     try {
       const { data } = await deleteUserMutation({
         variables: {
-          userId: _id,
+          _id: userId,
         },
       });
 
