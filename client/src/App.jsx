@@ -34,7 +34,18 @@ const client = new ApolloClient({
 });
 
 function App() {
-  return <ApolloProvider client={client}>{/* <-- app here */}</ApolloProvider>;
+  return (
+    <ApolloProvider client={client}>
+      {/* <-- app here */}
+      <div>
+        <Outlet />
+      </div>
+      <div>
+        <Footer />
+      </div>
+    </ApolloProvider>
+
+  );
 }
 
 export default App;
