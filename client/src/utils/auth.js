@@ -1,4 +1,4 @@
-import decode from 'jwt-decode';
+import { jwtDecode } from "jwt-decode";
 
 class AuthService {
     getProfile() {

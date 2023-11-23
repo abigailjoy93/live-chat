@@ -3,16 +3,16 @@
 // imports
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { QUERY_ONE_USER, QUERY_ME } from "../utils/queries";
 import { useMutation } from '@apollo/client';
-import { UPDATE_USER_EMAIL, UPDATE_USER_NAME, DELETE_USER} from "../utils/mutations"
+import { UPDATE_USER_EMAIL, UPDATE_USER_NAME, DELETE_USER } from "../utils/mutations"
 import Auth from "../utils/auth";
 
 // page function
 const Profile = () => {
   const { username: userParam } = useParams();
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  const { loading, data } = useQuery(userParam ? QUERY_ONE_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
