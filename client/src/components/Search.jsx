@@ -11,13 +11,9 @@ const Search = () => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button onClick={handleSearch} disabled={loading}>
+    <div class="searchbox">
+      <input class="searchtext" type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
+      <button class="searchbutton" onClick={handleSearch} disabled={loading}>
         Search
       </button>
 
