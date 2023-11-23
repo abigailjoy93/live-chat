@@ -1,7 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+import "./styles/Form.css";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -68,204 +69,87 @@ const Signup = () => {
   };
 
   return (
-    <main
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        marginBottom: "var(--margin-bottom)",
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "65rem",
-        }}
-      >
-        <div
-          style={{
-            border: "5px solid var(--accent)",
-            marginLeft: "25px",
-            marginRight: "25px",
-            marginBottom: "15px",
-            marginTop: "5px",
-            backgroundColor: "var(--light)",
-          }}
-        >
-          <h4
-            style={{
-              backgroundColor: "var(--accent)",
-              color: "var(--pop)",
-              padding: "0.5rem",
-              fontSize: "1.5rem",
-            }}
-          >
-            Sign Up
-          </h4>
-          <div style={{ padding: "1rem" }}>
-            <form onSubmit={handleFormSubmit}>
-              <div>
-                <label
-                  style={{
-                    fontSize: "1.2rem",
-                  }}
-                  htmlFor="box"
-                >
-                  Sign Up:
+    <main className="container">
+      <div className="box">
+        <h4 className="boxtitle">Sign Up</h4>
+        <div className="form">
+          <form onSubmit={handleFormSubmit}>
+            <div>
+              <label htmlFor="box" className="boxlabel">
+                Sign Up:
+              </label>
+              <div className="name-inputs">
+                <label htmlFor="first-name" className="name-label">
+                  First name:
                 </label>
-                <div>
-                  <label
-                    style={{
-                      margin: "75px",
-                      fontSize: "1rem",
-                    }}
-                    htmlFor="first-name"
-                  >
-                    First name:
-                  </label>
-                  <label
-                    style={{
-                      margin: "75px",
-                      fontSize: "1rem",
-                    }}
-                    htmlFor="last-name"
-                  >
-                    Last name:
-                  </label>
-                  <br />
-                  <input
-                    style={{
-                      height: "28px",
-                      width: "15vw",
-                      alignItems: "center",
-                      border: "2px solid var(--pop)",
-                    }}
-                    type="text"
-                    className="form-control"
-                    id="first-name"
-                  />
-                  <input
-                    style={{
-                      height: "28px",
-                      width: "15vw",
-                      alignItems: "center",
-                      border: "2px solid var(--pop)",
-                    }}
-                    type="text"
-                    className="form-control"
-                    id="last-name"
-                  />
-                </div>
-                <div>
-                  <label
-                    style={{
-                      fontSize: "1rem",
-                    }}
-                    className="email"
-                    htmlFor="email"
-                  >
-                    Email address:
-                  </label>
-                  <br />
-                  <input
-                    style={{
-                      height: "28px",
-                      width: "30vw",
-                      alignItems: "center",
-                      border: "2px solid var(--pop)",
-                    }}
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Account email"
-                    value={formState.email}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <label
-                    style={{
-                      fontSize: "1rem",
-                    }}
-                    className="username"
-                    htmlFor="user"
-                  >
-                    Username:
-                  </label>
-                  <br />
-                  <input
-                    style={{
-                      height: "28px",
-                      width: "30vw",
-                      alignItems: "center",
-                      border: "2px solid var(--pop)",
-                    }}
-                    type="text"
-                    className="form-control"
-                    id="user"
-                    name="username"
-                    placeholder="Username"
-                    value={formState.username}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <label
-                    style={{
-                      fontSize: "1rem",
-                    }}
-                    className="password"
-                    htmlFor="pwd"
-                  >
-                    Password:
-                  </label>
-                  <br />
-                  <input
-                    style={{
-                      height: "28px",
-                      width: "30vw",
-                      alignItems: "center",
-                      border: "2px solid var(--pop)",
-                    }}
-                    type="password"
-                    className="form-control"
-                    id="pwd"
-                    name="password"
-                    placeholder="******"
-                    value={formState.password}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <label
-                    style={{
-                      fontSize: "13px",
-                      fontWeight: "bold",
-                    }}
-                    className="requirements"
-                  >
-                    Passwords must be at least 8 characters long and contain at
-                    least one uppercase letter, lowercase letter, number, and at
-                    least one character from this set \[@ $ ! % * ? &\]
-                  </label>
-                </div>
+                <label htmlFor="last-name" className="name-label">
+                  Last name:
+                </label>
                 <br />
-                <button
-                  style={{
-                    height: "35px",
-                    width: "100px",
-                    fontSize: "15px",
-                    cursor: "pointer",
-                  }}
-                  type="submit"
-                  className="btn btn-default btn-block btn-primary"
-                >
-                  Sign Up
-                </button>
+                <input type="text" className="form-control" id="first-name" />
+                <input type="text" className="form-control" id="last-name" />
               </div>
-            </form>
-          </div>
+              <div>
+                <label htmlFor="email" className="email">
+                  Email address:
+                </label>
+                <br />
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Account email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="user" className="username">
+                  Username:
+                </label>
+                <br />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="user"
+                  name="username"
+                  placeholder="Username"
+                  value={formState.username}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="pwd" className="password">
+                  Password:
+                </label>
+                <br />
+                <input
+                  type="password"
+                  className="form-control"
+                  id="pwd"
+                  name="password"
+                  placeholder="******"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label className="requirements">
+                  Passwords must be at least 8 characters long and contain at
+                  least one uppercase letter, lowercase letter, number, and at
+                  least one character from this set [@ $ ! % * ? &]
+                </label>
+              </div>
+              <br />
+              <button
+                type="submit"
+                className="btn btn-default btn-block btn-primary"
+              >
+                Sign Up
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </main>
