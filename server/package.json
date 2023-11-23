@@ -4,7 +4,7 @@
   "description": "a live chat application that integrates user profiles",
   "main": "server.js",
   "scripts": {
-    "start": "node server/server.js --ignore client", 
+    "start": "node server/server.js --ignore client",
     "watch": "nodemon",
     "seed": "node seeders/seed.js"
   },
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/abigailjoy93/live-chat#readme",
   "dependencies": {
     "@apollo/server": "^4.9.5",
+    "apollo-server": "^3.13.0",
     "bcrypt": "^5.1.1",
     "express": "^4.18.2",
     "express.js": "^1.0.0",
