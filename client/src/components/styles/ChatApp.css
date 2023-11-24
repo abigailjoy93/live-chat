@@ -19,7 +19,9 @@ body {
 }
 
 .logo {
-    height: 25vh;
+    height: 20vh;
+    position: absolute;
+    bottom: -300px;
 }
 
 .chatbox-header,
