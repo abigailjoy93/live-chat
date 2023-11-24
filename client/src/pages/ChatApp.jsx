@@ -39,72 +39,46 @@ function ChatApp() {
 
   return (
     <body>
-      <header>
-        <img
-          className="logo"
-          src="assets/live-chat-high-resolution-logo-transparent.png"
-          alt="live chat logo"
-        ></img>
-      </header>
       <div>
         <div className="chatbox-header">
           <div className="card-header">
             <h2>Live chat connection established!</h2>
-            <p className="header-text">
-              Please remember that the person on the other side of the screen is
-              a real person. Be kind, be respectful, be interesting.
-            </p>
-            <p className="header-date">{currentDate}</p>
+            <p className="header-text">Please remember that the person on the other side of the screen is a real person. Be kind, be respectful, be interesting.</p>
+            <p className="header-date">November 18, 2023, 11:19 AM, CST</p>
           </div>
         </div>
         <div className="chatbox-card">
           <div className="card-body">
             <div className="received-messages">
-              <img
-                className="avatar1"
-                src={catAvatar}
-                alt="avatar for user 1"
-              ></img>
+              <img className="avatar1" src={catAvatar} alt="avatar for user 1"></img>
               <div className="received-messages-inner">
                 <div className="received-messages-body">
                   <div className="received-messages-content">
                     <div className="received-messages-text">
                       <p>Hi! This is our first sample message.</p>
                     </div>
-                    <div className="received-messages-footer text-muted">
-                      November 18, 2023 at 11:50 am
-                    </div>
+                    <div className="received-messages-footer text-muted">November 18, 2023 at 11:50 am</div>
                     <div className="received-messages-text">
                       <p>ladedadeda</p>
                     </div>
-                    <div className="received-messages-footer text-muted">
-                      November 18, 2023 at 11:55 am
-                    </div>
+                    <div className="received-messages-footer text-muted">November 18, 2023 at 11:55 am</div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="sent-messages">
-              <img
-                className="avatar2"
-                src={hedgeHog}
-                alt="avatar for user 2"
-              ></img>
+              <img className="avatar2" src={hedgeHog} alt="avatar for user 2"></img>
               <div className="sent-messages-inner">
                 <div className="sent-messages-body">
                   <div className="sent-messages-content">
                     <div className="sent-messages-text">
                       <p>WOW! Look at us go.</p>
                     </div>
-                    <div className="sent-messages-footer text-muted">
-                      November 18, 2023 at 11:59 am
-                    </div>
+                    <div className="sent-messages-footer text-muted">November 18, 2023 at 11:59 am</div>
                     <div className="sent-messages-text">
                       <p>What a time to be alive</p>
                     </div>
-                    <div className="sent-messages-footer text-muted">
-                      November 18, 2023 at 12:00 pm
-                    </div>
+                    <div className="sent-messages-footer text-muted">November 18, 2023 at 12:00 pm</div>
                   </div>
                 </div>
               </div>
@@ -112,8 +86,7 @@ function ChatApp() {
           </div>
         </div>
         <div className="textbox-card">
-          <input className="textbox" id="input" autocomplete="off" />
-          <button onClick={sendMessage}>Send</button>
+          <input className="textbox" id="input" autocomplete="off" /><button onClick={sendMessage}>Send</button>
         </div>
       </div>
 
