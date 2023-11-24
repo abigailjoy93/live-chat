@@ -44,7 +44,7 @@ function ChatApp() {
           <div className="card-header">
             <h2>Live chat connection established!</h2>
             <p className="header-text">Please remember that the person on the other side of the screen is a real person. Be kind, be respectful, be interesting.</p>
-            <p className="header-date">November 18, 2023, 11:19 AM, CST</p>
+            <p className="header-date">{currentDate}</p>
           </div>
         </div>
         <div className="chatbox-card">
