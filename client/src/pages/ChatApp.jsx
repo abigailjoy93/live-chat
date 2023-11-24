@@ -38,9 +38,6 @@ function ChatApp() {
 
   return (
     <body>
-      <header>
-        <img class="logo" src="assets/live-chat-high-resolution-logo-transparent.png" alt="live chat logo"></img>
-      </header>
       <div>
         <div class="chatbox-header">
           <div class="card-header">
