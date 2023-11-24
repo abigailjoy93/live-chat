@@ -4,7 +4,8 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 import "../components/styles/ChatApp.css";
-import catAvatar from "../assets/cat.png"
+import catAvatar from "../assets/cat.png";
+import hedgeHog from "../assets/hedgehog.png";
 
 
 const socket = io("http://localhost:3001");
@@ -51,7 +52,7 @@ function ChatApp() {
         <div class="chatbox-card">
           <div class="card-body">
             <div class="received-messages">
-              <img class="avatar1" src="catAvatar" alt="avatar for user 1"></img>
+              <img class="avatar1" src={catAvatar} alt="avatar for user 1"></img>
               <div class="received-messages-inner">
                 <div class="received-messages-body">
                   <div class="received-messages-content">
@@ -68,7 +69,7 @@ function ChatApp() {
               </div>
             </div>
             <div class="sent-messages">
-              <img class="avatar2" src="../assets/" alt="avatar for user 2"></img>
+              <img class="avatar2" src={hedgeHog} alt="avatar for user 2"></img>
               <div class="sent-messages-inner">
                 <div class="sent-messages-body">
                   <div class="sent-messages-content">
