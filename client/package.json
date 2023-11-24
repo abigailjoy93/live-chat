@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",
+    "date-fns": "^2.30.0",
     "graphql": "^16.8.1",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
