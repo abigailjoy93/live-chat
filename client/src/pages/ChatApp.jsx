@@ -87,10 +87,11 @@ function ChatApp() {
             </div>
           </div>
         </div>
+        <div class="textbox-card">
+          <input class="textbox" id="input" autocomplete="off" /><button>Send</button>
+        </div>
       </div>
-      <div class="textbox-card">
-        <input class="textbox" id="input" autocomplete="off" /><button>Send</button>
-      </div>
+
       {/* Separating changes for future triage */}
       <div>
         <ul>
