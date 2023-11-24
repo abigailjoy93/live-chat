@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import Error from "./pages/ErrorPage.jsx";
 import Home from "./pages/Home.jsx";
 import "./index.css";
-// import Chatroom from "./pages/Chatroom.jsx";
+import ChatApp from "./pages/ChatApp.jsx";
 // import Profilez from "./pages/Profile.jsx";
 // import Join from "./pages/Join.jsx";
 
@@ -15,13 +15,14 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <Error />,
     children: [
+      //Make sure to revert back to Home - just testing pages as we can set up the elements properly 
       {
         index: true,
-        element: <Home />,
+        element: <ChatApp />,
       }
       // , {
-      //   path: '/chatroom',
-      //   element: <Chatroom />
+      //   path: '/ChatApp',
+      //   element: <ChatApp />
       // }, {
       //   path: '/profile',
       //   element: <Profilez />
