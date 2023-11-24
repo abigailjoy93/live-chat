@@ -5,6 +5,7 @@ import {
   UPDATE_USER_NAME,
   DELETE_USER,
 } from "../utils/mutations";
+import Button from "react-bootstrap/Button";
 
 // update user email
 const UpdateUserEmail = ({ userId }) => {
@@ -36,9 +37,9 @@ const UpdateUserEmail = ({ userId }) => {
 
   return (
     <div>
-      <button onClick={handleUpdateEmail} disabled={loading}>
+      <Button onClick={handleUpdateEmail} disabled={loading}>
         {loading ? "Updating..." : "Update User"}
-      </button>
+      </Button>
 
       {error && <p>Error: {error.message}</p>}
     </div>
@@ -75,9 +76,9 @@ const UpdateUserName = ({ userId }) => {
 
   return (
     <div>
-      <button onClick={handleUpdateName} disabled={loading}>
+      <Button onClick={handleUpdateName} disabled={loading}>
         {loading ? "Updating..." : "Update User"}
-      </button>
+      </Button>
 
       {error && <p>Error: {error.message}</p>}
     </div>
@@ -104,9 +105,9 @@ const DeleteUser = ({ userId }) => {
 
   return (
     <div>
-      <button onClick={handleDeleteUser} disabled={loading}>
+      <Button onClick={handleDeleteUser} disabled={loading}>
         {loading ? "Deleting..." : "Delete User"}
-      </button>
+      </Button>
 
       {error && <p>Error: {error.message}</p>}
     </div>
