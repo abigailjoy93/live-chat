@@ -7,7 +7,7 @@ import "../components/styles/ChatApp.css";
 import catAvatar from "../assets/cat.png";
 import hedgeHog from "../assets/hedgehog.png";
 
-
+// const io = require("socket.io-client");
 const socket = io("http://localhost:3001");
 
 function ChatApp() {
@@ -88,7 +88,7 @@ function ChatApp() {
           </div>
         </div>
         <div class="textbox-card">
-          <input class="textbox" id="input" autocomplete="off" /><button>Send</button>
+          <input class="textbox" id="input" autocomplete="off" /><button onClick={sendMessage}>Send</button>
         </div>
       </div>
 
