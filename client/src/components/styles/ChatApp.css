@@ -12,14 +12,17 @@
 
 /* header {
     margin: 16%;
-}
+} */
 
 body {
     margin: 25px;
+    background-color: none !important;
 }
 
 .logo {
-    height: 25vh;
+    height: 20vh;
+    position: absolute;
+    bottom: -300px;
 }
 
 .chatbox-header,

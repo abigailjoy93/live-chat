@@ -4,8 +4,6 @@
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 import "../components/styles/ChatApp.css";
-// import catAvatar from "../assets/cat.png";
-// import hedgeHog from "../assets/hedgehog.png";
 
 
 // Component definition
@@ -43,6 +41,7 @@ const chatApp = () => {
     }
   };
 
+
   // Effect to handle incoming messages
   useEffect(() => {
     socket.on('chat message', (msg, serverOffset) => {
@@ -60,8 +59,10 @@ const chatApp = () => {
     };
   }, [socket]);
 
+
   // JSX structure for the component
   return (
+
     <div>
       <ul>
         {messages.map((message, index) => (
@@ -89,6 +90,7 @@ const chatApp = () => {
         </button>
       </form>
     </div>
+
   );
 };
 
