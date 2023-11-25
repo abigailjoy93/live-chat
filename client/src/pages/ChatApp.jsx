@@ -9,7 +9,7 @@ import hedgeHog from "../assets/hedgehog.png";
 import { format } from "date-fns";
 
 // const io = require("socket.io-client");
-const socket = io("http://localhost:3001");
+const socket = io("http://localhost:3000");
 
 function ChatApp() {
   const [messages, setMessages] = useState([]);
@@ -38,7 +38,7 @@ function ChatApp() {
   let currentDate = format(new Date(), "MMMM do yyyy, h:mm:ss a");
 
   return (
-    <body>
+    <main>
       <div>
         <div className="chatbox-header">
           <div className="card-header">
@@ -86,7 +86,7 @@ function ChatApp() {
           </div>
         </div>
         <div className="textbox-card">
-          <input className="textbox" id="input" autocomplete="off" /><button onClick={sendMessage}>Send</button>
+          <input className="textbox" id="input" autoComplete="off" /><button onClick={sendMessage}>Send</button>
         </div>
       </div>
 
@@ -104,7 +104,7 @@ function ChatApp() {
         />
         <button onClick={sendMessage}>Send</button>
       </div>
-    </body>
+    </main>
   );
 }
 

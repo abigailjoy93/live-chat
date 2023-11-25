@@ -70,7 +70,7 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
+      console.log(user);
       if (!user) {
         throw AuthenticationError;
       }

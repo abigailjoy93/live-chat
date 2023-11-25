@@ -10,12 +10,13 @@
     color: var(--pop);
 }
 
-header {
+/* header {
     margin: 16%;
-}
+} */
 
 body {
     margin: 25px;
+    background-color: none !important;
 }
 
 .logo {
