@@ -1,4 +1,4 @@
-const { User, Message } = require("../models");
+const { User, Chat, Message } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -28,7 +28,7 @@ const resolvers = {
     //   }
 
     // socket.io messages
-    messages: async () => await Message.find(),
+    // messages: async () => await Message.find(),
   },
 
   Mutation: {
@@ -89,21 +89,54 @@ const resolvers = {
 
       return { token, user };
     },
-
-    // socket.io post message
-    postMessage: async (_, { content, clientOffset }) => {
-      const message = new Message({ content, client_offset: clientOffset });
-      await message.save();
-      return message.id;
+    addChat: async (parent, args) => {
+      const chat = await Chat.create(args);
+      return chat;
     },
+    deleteChat: async ({ chatId }) => {
+      try {
+        const chat = await Chat.findOneAndDelete({ _id: chatId });
+
+        if (!Chat) {
+          return { error: "Chat not found" };
+        }
+
+        return { chat };
+      } catch (error) {
+        return { error: "Error deleting user" };
+      }
+    },
+    addMessage: async (parent, { chatId, messageText }, context) => {
+      if (context.user) {
+        return Chat.findOneAndUpdate(
+          { _id: chatId },
+          {
+            $addToSet: {
+              messages: { messageText, messageAuthor: context.user.username },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw AuthenticationError;
+    },
+    // socket.io post message
+    // postMessage: async (_, { content, clientOffset }) => {
+    //   const message = new Message({ content, client_offset: clientOffset });
+    //   await message.save();
+    //   return message.id;
+    // },
   },
 
   // socket.io subs
-  Subscription: {
-    messageAdded: {
-      subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(["MESSAGE_ADDED"]),
-    },
-  },
+  // Subscription: {
+  //   messageAdded: {
+  //     subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(["MESSAGE_ADDED"]),
+  //   },
+  // },
 };
 
 module.exports = resolvers;

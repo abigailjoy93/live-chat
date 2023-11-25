@@ -6,10 +6,19 @@ type User {
   password: String
 }
 
+type Chat {
+  _id: ID!
+  user1: String
+  user2: String
+  createdAt: String
+  messages: [Message]!
+}
+
 type Message {
-  id: ID!
-  client_offset: String!
-  content: String!
+  _id: ID
+  messageText: String
+  messageAuthor: String
+  createdAt: String
 }
 
 type Auth {
@@ -22,8 +31,6 @@ type Query {
   user(username:String): User
   me: User
   searchUsers(query: String!): [User]
-  messages: [Message]
-
 }
 
 type Mutation {
@@ -31,13 +38,11 @@ type Mutation {
   updateUserName(id: ID!, username: String!): Auth
   updateUserEmail(id: ID!, email: String!): Auth
   deleteUser(id: ID!): Auth
-  login(email:String!, password: String!):Auth
-  postMessage(content: String!, clientOffset: String!): ID
+  login(email:String!, password: String!): Auth
+  addChat(user1: String!, user2: String!): Chat
+  deleteChat(chatId: ID!): Chat
+  addMessage(chatId: ID!, messageText: String!): Chat
 },
-
-type Subscription {
-  messageAdded: Message
-}
 `;
 
 module.exports = typeDefs;
