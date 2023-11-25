@@ -8,6 +8,104 @@
   color: var(--pop);
 }
 
-.aboutme {
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutmebox,
+.aboutmecontainer {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
+  position: fixed;
+  right: 15px;
+}
+
+.aboutmecard {
   background-color: var(--light);
+  height: auto;
+  width: 60vw;
+}
+
+.contentcard {
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.userName,
+.emailAddress {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border: solid 3px var(--main);
+  padding: 3px;
+}
+
+.name {
+  color: var(--text);
+  font-size: 50px;
+  margin-bottom: -75px;
+}
+
+.userimagecard {
+  display: flex;
+  align-items: center;
+  margin-top: -75px;
+}
+
+.userimage {
+  max-width: 15vw;
+  height: auto;
+  margin: 15px;
+  padding: 15px;
+  border: solid 3px var(--main);
+}
+
+.changeusername,
+.changeemailaddress {
+  position: fixed;
+  border: solid 3px var(--main);
+  background-color: var(--pop);
+  padding: 3px;
+  margin-top: -5px;
+}
+
+.deletebutton {
+  height: auto;
+  border: solid 3px var(--main);
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: var(--pop);
+  font-size: larger;
+}
+
+.delete {
+  margin: 15px;
+  margin-top: 35px;
+}
+
+.changeusername {
+  right: 100px;
+}
+
+.changeemailaddress {
+  right: 85px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  margin: auto;
+}
+
+.logo {
+  height: 175px;
+  width: auto;
+  margin-left: 600px;
 }
