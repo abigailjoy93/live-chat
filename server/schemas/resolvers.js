@@ -26,7 +26,11 @@ const resolvers = {
     //     console.error(error);
     //     throw new Error('Error searching users');
     //   }
+
+    // socket.io messages
+    messages: async () => await Message.find(),
   },
+
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -86,23 +90,20 @@ const resolvers = {
       return { token, user };
     },
 
-    //socketio message
-    Query: {
-      messages: async () => await Message.find(),
+    // socket.io post message
+    postMessage: async (_, { content, clientOffset }) => {
+      const message = new Message({ content, client_offset: clientOffset });
+      await message.save();
+      return message.id;
     },
-    Mutation: {
-      postMessage: async (_, { content, clientOffset }) => {
-        const message = new Message({ content, client_offset: clientOffset });
-        await message.save();
-        return message.id;
-      },
-    },
-    Subscription: {
-      messageAdded: {
-        subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(['MESSAGE_ADDED']),
-      },
+  },
+
+  // socket.io subs
+  Subscription: {
+    messageAdded: {
+      subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(["MESSAGE_ADDED"]),
     },
   },
 };
 
-  module.exports = resolvers;
+module.exports = resolvers;
