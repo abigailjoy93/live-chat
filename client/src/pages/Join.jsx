@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// import Button from "react-bootstrap/Button";
+import Button from "react-bootstrap/Button";
 
 // join page function
 const Join = () => {

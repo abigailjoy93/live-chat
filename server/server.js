@@ -1,12 +1,12 @@
 const express = require("express");
 const { createServer } = require('http');
-const { join } = require('path');
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
 const {Server} = require("socket.io");
-
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+// const http = require('http');
+// const path = require("path");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -20,9 +20,9 @@ const server = new ApolloServer({
 
 const io = new Server(httpServer);
 
-server.applyMiddleware({ app });
-
-const pubsub = new ApolloServer.PubSub();
+// server.applyMiddleware({ app });
+// const Appserver = http.createServer(app);
+// const pubsub = new ApolloServer.PubSub();
 
 io.on('connection', async (socket) => {
   socket.on('chat message', async (msg, clientOffset) => {
