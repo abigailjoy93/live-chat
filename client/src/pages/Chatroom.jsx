@@ -25,7 +25,7 @@ function chatApp() {
   const sendMessage = () => {
     if (message.trim() !== "") {
       // Emit the message to the server
-      socket.emit("chat message", message);
+      socket.emit('"chat message"', message);
       setMessage("");
     }
   };
