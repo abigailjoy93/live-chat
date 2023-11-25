@@ -5,6 +5,7 @@ const { expressMiddleware } = require("@apollo/server/express4");
 const {Server} = require("socket.io");
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+const { createRoom } = require("./utils/room")
 // const http = require('http');
 // const path = require("path");
 
@@ -15,30 +16,29 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: ({ req, res }) => ({ req, res, pubsub }),
-
 });
-
-const io = new Server(httpServer);
 
 // server.applyMiddleware({ app });
 // const Appserver = http.createServer(app);
 // const pubsub = new ApolloServer.PubSub();
 
-io.on('connection', async (socket) => {
-  socket.on('chat message', async (msg, clientOffset) => {
-    const message = new Message({ content: msg, client_offset: clientOffset });
-    await message.save();
-    io.emit('chat message', { id: message.id, content: message.content, client_offset: message.client_offset });
-  });
+const io = new Server(httpServer);
+createRoom(io);
 
-  if (!socket.recovered) {
-    const messages = await Message.find({ id: { $gt: socket.handshake.auth.serverOffset || 0 } });
-    messages.forEach((message) => {
-      socket.emit('chat message', { id: message.id, content: message.content, client_offset: message.client_offset });
-    });
-  }
-});
+// io.on('connection', async (socket) => {
+//   socket.on('chat message', async (msg, clientOffset) => {
+//     const message = new Message({ content: msg, client_offset: clientOffset });
+//     await message.save();
+//     io.emit('chat message', { id: message.id, content: message.content, client_offset: message.client_offset });
+//   });
 
+//   if (!socket.recovered) {
+//     const messages = await Message.find({ id: { $gt: socket.handshake.auth.serverOffset || 0 } });
+//     messages.forEach((message) => {
+//       socket.emit('chat message', { id: message.id, content: message.content, client_offset: message.client_offset });
+//     });
+//   }
+// });
 
 const startApolloServer = async () => {
   await server.start();
