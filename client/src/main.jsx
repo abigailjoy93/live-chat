@@ -8,6 +8,7 @@ import ChatApp from "./pages/ChatApp.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Profile from "./pages/Profile.jsx";
 import Join from "./pages/Join.jsx";
+import Chatroom from "./pages/Chatroom.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       //Make sure to revert back to Home - just testing pages as we can set up the elements properly 
       {
         index: true,
-        element: <Join />,
+        element: <Chatroom />,
       }
       , {
         path: '/chatapp',
