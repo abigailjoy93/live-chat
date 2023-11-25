@@ -1,12 +1,18 @@
-//Where you can login and sign up
-
-// imports
+import React from "react";
 import Signup from "../components/Signup";
 import Login from "../components/Login";
+import Search from "../components/Search";
 
 // home page function
 const Home = () => {
-  return; //<-- page here;
+  return (
+    <div className="container">
+
+      <Login />
+      <Signup />
+
+    </div>
+  );
 };
 
-export default { Home };
+export default Home;

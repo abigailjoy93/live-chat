@@ -1,4 +1,5 @@
-import "./App.css";
+
+import { useState } from "react";
 import {
   ApolloClient,
   InMemoryCache,
@@ -6,10 +7,13 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
+import "./App.css";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 
-// Construct our main GraphQL API endpoint
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -34,17 +38,15 @@ const client = new ApolloClient({
 });
 
 function App() {
+  // Issues were somehow faced with state possibly??
+  // const [count, setCount] = useState(0);
+
   return (
     <ApolloProvider client={client}>
-      {/* <-- app here */}
-      <div>
-        <Outlet />
-      </div>
-      <div>
-        <Footer />
-      </div>
-    </ApolloProvider>
 
+      <Outlet />
+      <Footer />
+    </ApolloProvider>
   );
 }
 

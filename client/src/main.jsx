@@ -1,38 +1,39 @@
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-// import pages --> then pages will import the components
-import App from './App.jsx';
-import Home from './pages/Home.jsx';
-import Join from './pages/Join.jsx';
-import Chatroom from './pages/Chatroom.jsx';
-import Profile from './pages/Profile.jsx';
-import ErrorPage from './pages/ErrorPage.jsx';
+import App from "./App.jsx";
+import Error from "./pages/ErrorPage.jsx";
+import Home from "./pages/Home.jsx";
+import "./index.css";
+import ChatApp from "./pages/ChatApp.jsx";
+// import Profilez from "./pages/Profile.jsx";
+// import Join from "./pages/Join.jsx";
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-        errorElement: <ErrorPage />,
-        children: [
-            {
-                index: true,
-                element: <Home />
-            }, {
-                path: '/Join',
-                element: <Join />
-            }, {
-                path: '/profiles/:username',
-                element: <Profile />
-            }, {
-                path: '/Chatroom',
-                element: <Chatroom />
-            }
-        ]
-    },
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      //Make sure to revert back to Home - just testing pages as we can set up the elements properly 
+      {
+        index: true,
+        element: <ChatApp />,
+      }
+      // , {
+      //   path: '/ChatApp',
+      //   element: <ChatApp />
+      // }, {
+      //   path: '/profile',
+      //   element: <Profilez />
+      // }, {
+      //   path: '/join',
+      //   element: <Join />
+      // }
+    ],
+  },
 ]);
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <RouterProvider router={router} />
-)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);

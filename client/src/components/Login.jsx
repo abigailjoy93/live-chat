@@ -1,7 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+import "./styles/Form.css";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -39,59 +40,53 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Log On:</h4>
-          <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
-              <div className="form">
-                <label className="boxtitle" htmlFor="box">
-                  Log On:
+    <main className="container">
+      <div className="box">
+        <h4 className="box-title">Log On:</h4>
+        <div className="form">
+          <form onSubmit={handleFormSubmit}>
+            <div className="form-group">
+              <label htmlFor="box" className="box-label">
+                Log On:
+              </label>
+              <br />
+              <label htmlFor="email" className="email-label">
+                Email address:
+              </label>
+              <br />
+              <input
+                className="form-control"
+                placeholder="Your email"
+                name="email"
+                type="email"
+                value={formState.email}
+                onChange={handleChange}
+              />
+              <br />
+              <label htmlFor="pwd" className="password-label">
+                Password:
+              </label>
+              <br />
+              <input
+                className="form-control"
+                placeholder="******"
+                name="password"
+                type="password"
+                value={formState.password}
+                onChange={handleChange}
+              />
+              <div className="form-group">
+                <br />
+                <label className="remember">
+                  <input type="checkbox" /> Remember me
                 </label>
-                <br />
-                <label className="email" htmlFor="email">
-                  Email address:
-                </label>
-                <br />
-                <input
-                  className="form-input form-control"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <br />
-                <label className="password" htmlFor="pwd">
-                  Password:
-                </label>
-                <br />
-                <input
-                  className="form-input form-control"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <div className="checkbox">
-                  <br />
-                  <label className="remember">
-                    <input type="checkbox" /> Remember me
-                  </label>
-                </div>
-                <br />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: "pointer" }}
-                  type="submit"
-                >
-                  Login
-                </button>
               </div>
-            </form>
-          </div>
+              <br />
+              <button type="submit" className="btn btn-primary">
+                Login
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </main>
