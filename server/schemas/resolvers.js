@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Message } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -85,7 +85,24 @@ const resolvers = {
 
       return { token, user };
     },
+
+    //socketio message
+    Query: {
+      messages: async () => await Message.find(),
+    },
+    Mutation: {
+      postMessage: async (_, { content, clientOffset }) => {
+        const message = new Message({ content, client_offset: clientOffset });
+        await message.save();
+        return message.id;
+      },
+    },
+    Subscription: {
+      messageAdded: {
+        subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(['MESSAGE_ADDED']),
+      },
+    },
   },
 };
 
-module.exports = resolvers;
+  module.exports = resolvers;

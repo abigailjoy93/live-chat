@@ -10,7 +10,7 @@
     color: var(--pop);
 }
 
-header {
+/* header {
     margin: 16%;
 }
 
@@ -157,4 +157,18 @@ button {
     margin-left: 10px;
     background-color: var(--main);
     color: var(--light);
+} */
+.whiteBox {
+    background-color: white;
+    width: 1000px;
+    height: 900px;
 }
+ .text {
+    width: 800px;
+    height: 800px;
+ }
+
+ ul {
+    height: 1000px;
+    background-color: white;
+ }
