@@ -58,3 +58,39 @@ export const DELETE_USER = gql`
     }
   }
 `;
+
+export const ADD_CHAT = gql`
+  mutation addChat($user1: String!, $user2: String!) {
+    addChat(user1: $user1, user2: $user2) {
+      _id
+      user1
+      user2
+      createdAt
+    }
+  }
+`;
+
+export const DELETE_CHAT = gql`
+  mutation deleteChat($chatId: ID!) {
+    deleteChat(chatId: $chatId) {
+      _id
+    }
+  }
+`;
+
+export const ADD_MESSAGE = gql`
+  mutation addMessage($chatId: ID!, $messageText: String!) {
+    addComment(chatId: $thoughtId, messageText: $messageText) {
+      _id
+      user1
+      user2
+      createdAt
+      messages {
+        _id
+        messageText
+        messageAuthor
+        createdAt
+      }
+    }
+  }
+`;
