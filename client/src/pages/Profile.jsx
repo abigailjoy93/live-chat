@@ -39,7 +39,7 @@ return (
         </header>
         <div className="aboutme-contentcard">
           <div className="aboutme-userimagecard">
-            <img className="userkittyimage">{userKitty}</img>
+            <img className="userkitty-image">{userKitty}</img>
           </div>
           <ul>
             <div className="aboutme-username">
@@ -58,7 +58,7 @@ return (
             <br></br>
             <div className="aboutme-deleteaccount">
               <li className="aboutme-delete">
-                <btn className="deleteButton">Delete Account</btn>
+                <btn className="aboutme-deletebutton">Delete Account</btn>
               </li>
             </div>
           </ul>
