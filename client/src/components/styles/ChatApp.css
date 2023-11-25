@@ -19,10 +19,15 @@ body {
     background-color: none !important;
 }
 
+.navbar {
+    top: -400px;
+    width: 100%;
+}
+
 .logo {
     height: 20vh;
     position: absolute;
-    bottom: -300px;
+    bottom: 20px;
 }
 
 .chatbox-header,
