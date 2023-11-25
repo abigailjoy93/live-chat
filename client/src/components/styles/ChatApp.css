@@ -1,5 +1,5 @@
 /* Please  note some of the CSS was tweaked to meet the conditions into JSX */
-:root {
+/* :root {
     --main: #4d4743;
     --accent: #c7cac8;
     --text: #0d0e10;
@@ -10,18 +10,10 @@
     color: var(--pop);
 }
 
-/* header {
-    margin: 16%;
-} */
-
-body {
-    margin: 25px;
-    background-color: none !important;
-}
-
 .navbar {
     top: -400px;
     width: 100%;
+    height: 100px;
 }
 
 .logo {
@@ -165,18 +157,18 @@ button {
     margin-left: 10px;
     background-color: var(--main);
     color: var(--light);
-} */
+}
+
+
 .whiteBox {
     background-color: white;
     width: 1000px;
     height: 900px;
 }
- .text {
+
+.text {
     width: 800px;
     height: 800px;
- }
+}
 
- ul {
-    height: 1000px;
-    background-color: white;
- }
+*/

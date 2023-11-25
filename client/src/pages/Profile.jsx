@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ONE_USER, QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
+import "../App.css";
 // import { UPDATE_USER_EMAIL, UPDATE_USER_NAME, DELETE_USER } from "../components/ProfileMutations"
 
 // page function
