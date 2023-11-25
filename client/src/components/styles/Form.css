@@ -1,6 +1,6 @@
-/* signup.css */
-:root {
-  --main: #e08d3c;
+/* signup.css 
+:root { 
+ --main: #e08d3c;
   --accent: #3d0c02;
   --text: #000000;
   --pop: #f5deb3;
@@ -37,12 +37,12 @@ button {
   font-size: 15px;
 }
 
-/* .logo {
+ .logo {
   height: 22vh;
   position: absolute;
   left: 645px;
   top: 100px;
-} */
+} 
 
 .container {
   display: flex;
@@ -133,3 +133,5 @@ button {
   font-size: 12px;
   margin-top: 5px;
 }
+
+*/
