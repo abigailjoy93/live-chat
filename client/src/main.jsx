@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       //Make sure to revert back to Home - just testing pages as we can set up the elements properly 
       {
         index: true,
-        element: <ChatApp />,
+        element: <Join />,
       }
       , {
         path: '/chatapp',
