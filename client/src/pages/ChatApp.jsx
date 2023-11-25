@@ -6,6 +6,7 @@ import io from "socket.io-client";
 import "../components/styles/ChatApp.css";
 import catAvatar from "../assets/cat.png";
 import hedgeHog from "../assets/hedgehog.png";
+import { format } from "date-fns";
 
 // const io = require("socket.io-client");
 const socket = io("http://localhost:3001");
@@ -34,7 +35,7 @@ function ChatApp() {
     }
   };
 
-
+  let currentDate = format(new Date(), "MMMM do yyyy, h:mm:ss a");
 
   return (
     <body>
@@ -43,7 +44,7 @@ function ChatApp() {
           <div className="card-header">
             <h2>Live chat connection established!</h2>
             <p className="header-text">Please remember that the person on the other side of the screen is a real person. Be kind, be respectful, be interesting.</p>
-            <p className="header-date">November 18, 2023, 11:19 AM, CST</p>
+            <p className="header-date">{currentDate}</p>
           </div>
         </div>
         <div className="chatbox-card">
@@ -97,16 +98,13 @@ function ChatApp() {
           ))}
         </ul>
         <input
-          type='text'
+          type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
         <button onClick={sendMessage}>Send</button>
       </div>
-
-
-    </body >
-
+    </body>
   );
 }
 

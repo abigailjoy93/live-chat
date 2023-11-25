@@ -7,7 +7,7 @@ function Footer() {
         <footer>
           <div>
             <div>
-              <img class="logo" src={logoTransparent} alt="live chat logo"></img>
+              <img className="logo" src={logoTransparent} alt="live chat logo"></img>
             </div>
           </div>
         </footer>
