@@ -1,39 +1,44 @@
 const express = require("express");
+const { createServer } = require('http');
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
-const path = require("path");
-const socketIo = require("socket.io");
-const http = require('http');
-const mongoose = require("./config/connection");
-
+const {Server} = require("socket.io");
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+// const http = require('http');
+// const path = require("path");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+const httpServer = createServer(app);
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: ({ req, res }) => ({ req, res, pubsub }),
+
 });
 
-const Appserver = http.createServer(app);
-const io = socketIo(server);
+const io = new Server(httpServer);
 
-// socket io event handling
-io.on("connection", (socket) => {
-  console.log("A user connected");
+// server.applyMiddleware({ app });
+// const Appserver = http.createServer(app);
+// const pubsub = new ApolloServer.PubSub();
 
-  // Listen for chat messages
-  socket.on('chat message', (msg) => {
-    // Broadcast the message to all connected clients
-    io.emit('chat message', msg);
+io.on('connection', async (socket) => {
+  socket.on('chat message', async (msg, clientOffset) => {
+    const message = new Message({ content: msg, client_offset: clientOffset });
+    await message.save();
+    io.emit('chat message', { id: message.id, content: message.content, client_offset: message.client_offset });
   });
-  //
-  socket.on("disconnect", () => {
-    console.log("User disconnected");
-  });
+
+  if (!socket.recovered) {
+    const messages = await Message.find({ id: { $gt: socket.handshake.auth.serverOffset || 0 } });
+    messages.forEach((message) => {
+      socket.emit('chat message', { id: message.id, content: message.content, client_offset: message.client_offset });
+    });
+  }
 });
-//register with expresss?
+
 
 const startApolloServer = async () => {
   await server.start();

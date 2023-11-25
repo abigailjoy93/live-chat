@@ -1,14 +1,12 @@
-//User Page
-
 // imports
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ONE_USER, QUERY_ME } from "../utils/queries";
-import { useMutation } from "@apollo/client";
-import { UPDATE_USER_EMAIL, UPDATE_USER_NAME, DELETE_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
 import userKitty from "..assets/cat.png";
 import logo from "..assets/live-chat-high-resolution-logo-transparent.png";
+import Auth from "../utils/auth";
+import "../App.css";
+// import { UPDATE_USER_EMAIL, UPDATE_USER_NAME, DELETE_USER } from "../components/ProfileMutations"
 
 // page function
 const Profile = () => {
@@ -48,14 +46,14 @@ return (
               <li>
                 User Name: <strong>{user.username}</strong>
               </li>
-              <btn class="aboutme-changeusername">Change Username</btn>
+              <btn className="aboutme-changeusername">Change Username</btn>
             </div>
             <br></br>
             <div className="aboutme-emailaddress">
               <li>
                 Email Address: <strong>{user.email}</strong>
               </li>
-              <btn class="aboutme-changeusername">Change Email Address</btn>
+              <btn className="aboutme-changeusername">Change Email Address</btn>
             </div>
             <br></br>
             <div className="aboutme-deleteaccount">
@@ -78,8 +76,3 @@ return (
 );
 
 export default Profile;
-
-// to do
-// add update username functionality
-// add update user email functionality
-// add delete user functionality

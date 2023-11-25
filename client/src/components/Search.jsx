@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { SEARCH_USERS } from "../utils/queries";
+import "./styles/Form.css";
 
 const Search = () => {
   const [query, setQuery] = useState("");
@@ -11,9 +12,19 @@ const Search = () => {
   };
 
   return (
-    <div class="searchbox">
-      <input class="searchtext" type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
-      <button class="searchbutton" onClick={handleSearch} disabled={loading}>
+    <div className="searchbox">
+      <input
+        className="searchtext form-control"
+        type="text"
+        placeholder="Search..."
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+      />
+      <button
+        className="searchbutton btn btn-primary"
+        onClick={handleSearch}
+        disabled={loading}
+      >
         Search
       </button>
 
@@ -22,7 +33,12 @@ const Search = () => {
       {data && data.searchUsers && (
         <ul>
           {data.searchUsers.map((user) => (
-            <li key={user._id}>{user.username}</li>
+            <li key={user._id}>
+              <div className="user-details">
+                <h3 className="username-result">{user.name}</h3>
+                <p className="email-result">{user.email}</p>
+              </div>
+            </li>
           ))}
         </ul>
       )}

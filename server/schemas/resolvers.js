@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Message } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -26,7 +26,11 @@ const resolvers = {
     //     console.error(error);
     //     throw new Error('Error searching users');
     //   }
+
+    // socket.io messages
+    messages: async () => await Message.find(),
   },
+
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -70,7 +74,7 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
+      console.log(user);
       if (!user) {
         throw AuthenticationError;
       }
@@ -84,6 +88,20 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+
+    // socket.io post message
+    postMessage: async (_, { content, clientOffset }) => {
+      const message = new Message({ content, client_offset: clientOffset });
+      await message.save();
+      return message.id;
+    },
+  },
+
+  // socket.io subs
+  Subscription: {
+    messageAdded: {
+      subscribe: (_, __, { pubsub }) => pubsub.asyncIterator(["MESSAGE_ADDED"]),
     },
   },
 };
