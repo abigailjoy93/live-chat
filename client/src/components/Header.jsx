@@ -4,18 +4,18 @@ import liveChatWords from "../assets/live_chat_words.png";
 import Auth from "../utils/auth";
 
 function Header() {
-    return (
-        <header>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">
-                    {/* They do not like the images in the header */}
-                    {/* width="90" height="50" alt="" */}
-                    {/* <img src={strictlyLogo} ></img> */}
-                    {/* width="110" height="50" alt="" */}
-                    {/* <img src={liveChatWords} > </img> */}
-                </a>
+  return (
+    <header>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <a className="navbar-brand" href="#">
+          {/* They do not like the images in the header */}
+          {/* width="90" height="50" alt="" */}
+          {/* <img src={strictlyLogo} ></img> */}
+          {/* width="110" height="50" alt="" */}
+          {/* <img src={liveChatWords} > </img> */}
+        </a>
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        {/* <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     {Auth.loggedIn() ? (
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
@@ -31,9 +31,9 @@ function Header() {
                             <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     )}
-                </div>
-            </nav>
-        </header>
-    );
+                </div> */}
+      </nav>
+    </header>
+  );
 }
 export default Header;
