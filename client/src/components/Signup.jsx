@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
-import "./styles/Form.css";
+import "../pages/Home/Home.css";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -69,13 +69,15 @@ const Signup = () => {
   };
 
   return (
-    <main className="container">
+    <section className="container">
       <div className="box">
         <h4 className="boxtitle">New to Live Chat?</h4>
         <div className="form">
           <form onSubmit={handleFormSubmit}>
             <div>
-              <label className="boxlabel">Sign Up:</label>
+              {/* <label htmlFor="box" className="boxlabel">
+                Sign Up:
+              </label> */}
               <div>
                 <label htmlFor="su-email" className="email">
                   Email address:
@@ -139,7 +141,7 @@ const Signup = () => {
           </form>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

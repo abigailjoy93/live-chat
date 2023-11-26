@@ -1,4 +1,4 @@
-
+import "./App.css";
 import { useState } from "react";
 import {
   ApolloClient,
@@ -7,7 +7,6 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import "./App.css";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";

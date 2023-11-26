@@ -1,14 +1,3 @@
-/* signup.css 
-:root { 
- --main: #e08d3c;
-  --accent: #3d0c02;
-  --text: #000000;
-  --pop: #f5deb3;
-  --light: #f4f0ec;
-  font-family: "Ysabeau Infant", sans-serif;
-  color: var(--pop);
-}
-
 .searchbox {
   position: absolute;
   right: 45px;
@@ -37,19 +26,18 @@ button {
   font-size: 15px;
 }
 
- .logo {
+/* .logo {
   height: 22vh;
   position: absolute;
   left: 645px;
   top: 100px;
-} 
+} */
 
 .container {
+  margin-top: 5rem;
   display: flex;
   justify-content: center;
-  margin-top: -175px;
-  margin-right: 100px;
-  margin-left: 100px;
+  align-items: center;
 }
 
 .box {
@@ -133,5 +121,3 @@ button {
   font-size: 12px;
   margin-top: 5px;
 }
-
-*/

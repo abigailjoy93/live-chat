@@ -1,11 +1,9 @@
-//Chatroom Page
 
-//socket.io
+//imports
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
-import "../App.css";
-import catAvatar from "../assets/cat.png";
-import hedgeHog from "../assets/hedgehog.png";
+import catAvatar from "../../assets/cat.png";
+import hedgeHog from "../../assets/hedgehog.png";
 import { format } from "date-fns";
 
 
@@ -66,7 +64,7 @@ const chatApp = () => {
 
   // JSX structure for the component
   return (
-    <main>
+    <section>
       <div>
         <ul>
           {messages.map((message, index) => (
@@ -97,7 +95,7 @@ const chatApp = () => {
 
 
 
-      <div>
+      {/* <div>
         <div className="chatbox-header">
           <div className="card-header">
             <h2>Live chat connection established!</h2>
@@ -146,8 +144,8 @@ const chatApp = () => {
         <div className="textbox-card">
           <input className="textbox" id="input" autoComplete="off" /><button>Send</button>
         </div>
-      </div>
-    </main>
+      </div> */}
+    </section>
 
 
   );
