@@ -15,21 +15,23 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      //Make sure to revert back to Home - just testing pages as we can set up the elements properly 
+      //Make sure to revert back to Home - just testing pages as we can set up the elements properly
       {
         index: true,
+        element: <Home />,
+      },
+      {
+        path: "/chatapp",
+        element: <ChatApp />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/join",
         element: <Join />,
-      }
-      , {
-        path: '/chatapp',
-        element: <ChatApp />
-      }, {
-        path: '/profile',
-        element: <Profile />
-      }, {
-        path: '/join',
-        element: <Join />
-      }
+      },
     ],
   },
 ]);
