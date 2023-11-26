@@ -1,15 +1,13 @@
 const { Schema, model } = require("mongoose");
-const dateFormat = require('../utils/dateFormat');
+const dateFormat = require("../utils/dateFormat");
 
 const chatSchema = new Schema({
-  user1: {
-    type: String,
-    required: true,
-  },
-  user2: {
-    type: String,
-    required: true,
-  },
+  users: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,

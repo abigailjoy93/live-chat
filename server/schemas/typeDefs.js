@@ -39,7 +39,7 @@ type Mutation {
   updateUserEmail(id: ID!, email: String!): Auth
   deleteUser(id: ID!): Auth
   login(email:String!, password: String!): Auth
-  addChat(user1: String!, user2: String!): Chat
+  addChat(users: String!, createdAt: String!): Chat
   deleteChat(chatId: ID!): Chat
   addMessage(chatId: ID!, messageText: String!): Chat
 },

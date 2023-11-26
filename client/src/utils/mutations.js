@@ -60,11 +60,9 @@ export const DELETE_USER = gql`
 `;
 
 export const ADD_CHAT = gql`
-  mutation addChat($user1: String!, $user2: String!) {
-    addChat(user1: $user1, user2: $user2) {
-      _id
-      user1
-      user2
+  mutation addChat($users: String!) {
+    addChat(users: $users) {
+      users
       createdAt
     }
   }
@@ -80,10 +78,9 @@ export const DELETE_CHAT = gql`
 
 export const ADD_MESSAGE = gql`
   mutation addMessage($chatId: ID!, $messageText: String!) {
-    addComment(chatId: $thoughtId, messageText: $messageText) {
+    addMessage(chatId: $chatId, messageText: $messageText) {
       _id
-      user1
-      user2
+      users
       createdAt
       messages {
         _id
