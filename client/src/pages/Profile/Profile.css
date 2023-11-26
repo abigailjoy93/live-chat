@@ -11,6 +11,7 @@
   padding: 2rem;
   display: flex;
   align-items: center;
+  border: 5px solid var(--accent);
   border-radius: 15px;
 }
 

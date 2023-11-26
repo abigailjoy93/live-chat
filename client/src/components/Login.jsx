@@ -40,57 +40,49 @@ const Login = (props) => {
   };
 
   return (
-    <section className="container">
-      <div className="box">
+    <section className="form-box">
+      <form className="form" onSubmit={handleFormSubmit}>
         <h4 className="box-title">Already Have an Account?</h4>
-        <div className="form">
-          <form onSubmit={handleFormSubmit}>
-            <div className="form-group">
-              {/* <label htmlFor="box" className="box-label">
-                Log On:
-              </label>
-              <br /> */}
-              <label htmlFor="email" className="email-label">
-                Email address:
-              </label>
-              <br />
-              <input
-                className="form-control"
-                placeholder="Your email"
-                id="log-email"
-                name="email"
-                type="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <br />
-              <label htmlFor="log-pwd" className="password-label">
-                Password:
-              </label>
-              <br />
-              <input
-                className="form-control"
-                placeholder="******"
-                id="log-pwd"
-                name="password"
-                type="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <div className="form-group">
-                <br />
-                <label className="remember">
-                  <input type="checkbox" /> Remember me
-                </label>
-              </div>
-              <br />
-              <button type="submit" className="home-button btn btn-primary">
-                Login
-              </button>
-            </div>
-          </form>
+        <label htmlFor="form-box" className="form-box-label">
+          Log On
+        </label>
+        <div className="form-group">
+          <label htmlFor="email" className="email-label">
+            Email address:
+          </label>
+          <input
+            className="form-control"
+            placeholder="Your email"
+            id="log-email"
+            name="email"
+            type="email"
+            value={formState.email}
+            onChange={handleChange}
+          />
         </div>
-      </div>
+        <div className="form-group">
+          <label htmlFor="log-pwd" className="password-label">
+            Password:
+          </label>
+          <input
+            className="form-control"
+            placeholder="******"
+            id="log-pwd"
+            name="password"
+            type="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label className="remember">
+            <input type="checkbox" /> Remember me
+          </label>
+        </div>
+        <button type="submit" className="home-button">
+          <p className="btn-text">Login</p>
+        </button>
+      </form>
     </section>
   );
 };
