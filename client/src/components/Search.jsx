@@ -17,8 +17,8 @@ const Search = () => {
         className="searchtext form-control"
         type="text"
         placeholder="Search..."
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
       />
       <button
         className="searchbutton btn btn-primary"

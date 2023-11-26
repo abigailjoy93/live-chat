@@ -42,7 +42,7 @@ const Login = (props) => {
   return (
     <section className="container">
       <div className="box">
-        <h4 className="box-title">Log On:</h4>
+        <h4 className="box-title">Already Have an Account?</h4>
         <div className="form">
           <form onSubmit={handleFormSubmit}>
             <div className="form-group">
@@ -57,19 +57,21 @@ const Login = (props) => {
               <input
                 className="form-control"
                 placeholder="Your email"
+                id="log-email"
                 name="email"
                 type="email"
                 value={formState.email}
                 onChange={handleChange}
               />
               <br />
-              <label htmlFor="pwd" className="password-label">
+              <label htmlFor="log-pwd" className="password-label">
                 Password:
               </label>
               <br />
               <input
                 className="form-control"
                 placeholder="******"
+                id="log-pwd"
                 name="password"
                 type="password"
                 value={formState.password}

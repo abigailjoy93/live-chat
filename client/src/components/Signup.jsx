@@ -71,7 +71,7 @@ const Signup = () => {
   return (
     <section className="container">
       <div className="box">
-        <h4 className="box-title">Sign Up</h4>
+        <h4 className="boxtitle">New to Live Chat?</h4>
         <div className="form">
           <form onSubmit={handleFormSubmit}>
             <div>
@@ -79,14 +79,14 @@ const Signup = () => {
                 Sign Up:
               </label> */}
               <div>
-                <label htmlFor="email" className="email">
+                <label htmlFor="su-email" className="email">
                   Email address:
                 </label>
                 <br />
                 <input
                   type="email"
                   className="form-control"
-                  id="email"
+                  id="su-email"
                   name="email"
                   placeholder="Account email"
                   value={formState.email}
@@ -109,14 +109,14 @@ const Signup = () => {
                 />
               </div>
               <div>
-                <label htmlFor="pwd" className="password">
+                <label htmlFor="su-pwd" className="password">
                   Password:
                 </label>
                 <br />
                 <input
                   type="password"
                   className="form-control"
-                  id="pwd"
+                  id="su-pwd"
                   name="password"
                   placeholder="******"
                   value={formState.password}
