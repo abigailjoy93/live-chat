@@ -133,7 +133,7 @@ const Signup = () => {
               <br />
               <button
                 type="submit"
-                className="btn btn-default btn-block btn-primary"
+                className="home-button btn btn-default btn-block btn-primary"
               >
                 Sign Up
               </button>

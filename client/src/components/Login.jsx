@@ -84,7 +84,7 @@ const Login = (props) => {
                 </label>
               </div>
               <br />
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="home-button btn btn-primary">
                 Login
               </button>
             </div>

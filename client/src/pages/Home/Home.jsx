@@ -7,7 +7,7 @@ import "./Home.css";
 // home page function
 const Home = () => {
   return (
-    <div className="container">
+    <div className="home-container">
       <Login />
       <Signup />
     </div>
