@@ -1,6 +1,16 @@
-button {
-  width: 75vw;
-  height: 10vh;
+.join-btn {
+  width: 25vw;
+  height: 25vh;
+  margin-top: 7rem;
+  margin-left: 35rem;
+  background-color: var(--main);
+  border-radius: 20px;
+}
+
+.join-btn-text {
   font-size: 35px;
-  margin-top: 50px;
+}
+
+.join-btn:hover {
+  background-color: var(--accent);
 }

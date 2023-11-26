@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import "./Join.css"
 
 // join page function
 const Join = () => {
@@ -12,8 +13,8 @@ const Join = () => {
 
   return (
     <div className="d-grid gap-2">
-      <Button className="btn btn-primary" type="button" onClick={routeChange}>
-        Connect me to a chat!
+      <Button className="join-btn" type="button" onClick={routeChange}>
+        <p className="join-btn-text">Connect me to a chat!</p>
       </Button>
     </div>
   );
