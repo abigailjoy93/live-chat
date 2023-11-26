@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 import { format } from "date-fns";
 import { useMutation } from "@apollo/client";
@@ -8,6 +9,7 @@ import hedgeHog from "../assets/hedgehog.png";
 
 const Chatroom = () => {
   const [pairedWith, setPairedWith] = useState(null);
+  const { username } = useParams();
   const [addChat] = useMutation(ADD_CHAT);
 
   useEffect(() => {
@@ -21,28 +23,29 @@ const Chatroom = () => {
       setPairedWith(pairedWith);
     });
 
-    addChat({
-      variables: {
-        users: [
-         //user data
-        ], 
-      },
-    })
-      .then((response) => {
-        // Handle the response if needed
-        console.log("Chat added:", response.data.addChat);
-      })
-      .catch((error) => {
-        // Handle the error if needed
-        console.error("Error adding chat:", error);
-      });
+    // addChat({
+    //   variables: {
+    //     users: [
+    //       username,
+    //       pairedWith
+    //     ], 
+    //   },
+    // })
+    //   .then((response) => {
+    //     // Handle the response if needed
+    //     console.log("Chat added:", response.data.addChat);
+    //   })
+    //   .catch((error) => {
+    //     // Handle the error if needed
+    //     console.error("Error adding chat:", error);
+    //   });
 
-    // Clean up on component unmount
-    return () => {
-      // Emit a message to leave the room
-      socket.emit("leaveRoom", "Room 1");
-      socket.disconnect();
-    };
+    // // Clean up on component unmount
+    // return () => {
+    //   // Emit a message to leave the room
+    //   socket.emit("leaveRoom", "Room 1");
+    //   socket.disconnect();
+    // };
   }, []);
 
   let currentDate = format(new Date(), "MMMM do yyyy, h:mm:ss a");
@@ -62,6 +65,7 @@ const Chatroom = () => {
           ) : (
             <p>Waiting for a partner...</p>
           )}
+          <button>Leave</button>
         </div>
       </div>
       <div className="chatbox-card">
