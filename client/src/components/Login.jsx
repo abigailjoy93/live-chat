@@ -46,9 +46,7 @@ const Login = (props) => {
         <div className="form">
           <form onSubmit={handleFormSubmit}>
             <div className="form-group">
-              <label htmlFor="box" className="box-label">
-                Log On:
-              </label>
+              <label className="box-label">Log On:</label>
               <br />
               <label htmlFor="email" className="email-label">
                 Email address:
@@ -57,6 +55,7 @@ const Login = (props) => {
               <input
                 className="form-control"
                 placeholder="Your email"
+                id="email"
                 name="email"
                 type="email"
                 value={formState.email}
@@ -70,6 +69,7 @@ const Login = (props) => {
               <input
                 className="form-control"
                 placeholder="******"
+                id="pwd"
                 name="password"
                 type="password"
                 value={formState.password}

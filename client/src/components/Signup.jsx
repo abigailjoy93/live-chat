@@ -75,7 +75,7 @@ const Signup = () => {
         <div className="form">
           <form onSubmit={handleFormSubmit}>
             <div>
-              <label htmlFor="box" className="boxlabel">
+              <label className="boxlabel">
                 Sign Up:
               </label>
               <div>
