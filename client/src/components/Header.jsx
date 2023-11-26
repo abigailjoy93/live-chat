@@ -2,11 +2,13 @@ import React from "react";
 import strictlyLogo from "../assets/strictly_logo.png";
 import liveChatWords from "../assets/live_chat_words.png";
 import Auth from "../utils/auth";
+import Search from "./Search";
 
 function Header() {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <Search />
+      <nav className="navbar">
         <a className="navbar-brand" href="#">
           {/* They do not like the images in the header */}
           {/* width="90" height="50" alt="" */}

@@ -17,7 +17,54 @@ header {
   z-index: 1;
   width: 100%;
   height: 5rem;
-  background-color: var(--light);
+  background-color: var(--text);
+  border-bottom: 3px solid;
+  border-color: var(--accent);
+}
+
+/* search bar */
+.searchbox {
+  /* position: absolute; */
+  left: 0;
+  height: 10rem;
+  width: 30rem;
+  margin-left: 1rem;
+  /* top: 3px; */
+}
+
+.search-display {
+  top: 0;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.searchtext {
+  /* height: 25px;
+  width: 250px;*/
+  margin-right: 5px; 
+}
+
+.searchbutton {
+  width: 6rem;
+  padding: 5px;
+}
+
+.user-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5px;
+  background-color: var(--main);
+  border: 3px solid var(--text);
+  border-radius: 10px;
+}
+
+.result {
+  margin: 0;
+}
+.username-result {
+  color: var(--pop)
 }
 
 /* footer */
