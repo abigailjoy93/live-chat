@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
-import "./styles/Form.css";
+import "../pages/Home/Home.css";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -40,16 +40,16 @@ const Login = (props) => {
   };
 
   return (
-    <main className="container">
+    <section className="container">
       <div className="box">
         <h4 className="box-title">Log On:</h4>
         <div className="form">
           <form onSubmit={handleFormSubmit}>
             <div className="form-group">
-              <label htmlFor="box" className="box-label">
+              {/* <label htmlFor="box" className="box-label">
                 Log On:
               </label>
-              <br />
+              <br /> */}
               <label htmlFor="email" className="email-label">
                 Email address:
               </label>
@@ -89,7 +89,7 @@ const Login = (props) => {
           </form>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { SEARCH_USERS } from "../utils/queries";
-import "./styles/Form.css";
+import "../pages/Home/Home.css";
 
 const Search = () => {
   const [query, setQuery] = useState("");
