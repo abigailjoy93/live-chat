@@ -18,14 +18,17 @@ const resolvers = {
       throw AuthenticationError;
     },
 
-    // searchUsers: async (_, { query }) => {
-    //   try {
-    //     const users = await User.find({ username: { $regex: query, $options: 'i' } });
-    //     return users;
-    //   } catch (error) {
-    //     console.error(error);
-    //     throw new Error('Error searching users');
-    //   }
+    searchUsers: async (_, { query }) => {
+      try {
+        const users = await User.find({
+          username: { $regex: query, $options: "i" },
+        });
+        return users;
+      } catch (error) {
+        console.error(error);
+        throw new Error("Error searching users");
+      }
+    },
 
     // socket.io messages
     messages: async () => await Message.find(),
