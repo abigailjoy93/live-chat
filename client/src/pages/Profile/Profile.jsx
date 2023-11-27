@@ -3,10 +3,9 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ONE_USER, QUERY_ME } from "../../utils/queries";
 import userKitty from "../../assets/cat.png";
-import logo from "../../assets/liveChatHighResolutionLogoTransparent.png";
 import Auth from "../../utils/auth";
 import "./Profile.css";
-// import { UPDATE_USER_EMAIL, UPDATE_USER_NAME, DELETE_USER } from "../components/ProfileMutations"
+import { UpdateUserEmail, UpdateUserName, DeleteUser } from "../../components/ProfileMutations";
 
 // page function
 const Profile = () => {
@@ -46,24 +45,27 @@ const Profile = () => {
             <p>
               User Name: <strong>{user.username}</strong>
             </p>
-            <button className="aboutme-btn">
-              <p className="btn-text">Change Username</p>
-            </button>
+            < UpdateUserName />
+            {/* <button className="form-btn" onClick={ UpdateUserName }>
+              Change Username
+            </button> */}
           </li>
           <br></br>
           <li className="aboutme-listitem">
             <p>
               Email Address: <strong>{user.email}</strong>
             </p>
-            <button className="aboutme-btn">
-              <p className="btn-text">Change Email</p>
-            </button>
+            < UpdateUserEmail />
+            {/* <button className="form-btn" onClick={UpdateUserEmail}>
+              Change Email
+            </button> */}
           </li>
           <br></br>
           <li className="">
-            <button className="aboutme-btn">
-              <p className="btn-text">Delete Account</p>
-            </button>
+            < DeleteUser />
+            {/* <button className="form-btn" onClick={DeleteUser}>
+              Delete Account
+            </button> */}
           </li>
         </ul>
         {/* </div> */}

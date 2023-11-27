@@ -32,7 +32,7 @@ const Search = () => {
       {loading && <p>Loading...</p>}
 
       {data && data.searchUsers && (
-        <ul>
+        <ul className="result-list">
           {data.searchUsers.map((user) => (
             <li key={user._id}>
               <div className="user-details">

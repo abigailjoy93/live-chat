@@ -122,8 +122,8 @@ const Signup = () => {
             character from this set [@ $ ! % * ? &]
           </label>
         </div>
-        <button type="submit" className="home-button">
-          <p className="btn-text">Sign Up</p>
+        <button type="submit" className="form-btn">
+          Sign Up
         </button>
       </form>
     </section>

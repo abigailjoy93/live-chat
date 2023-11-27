@@ -79,8 +79,8 @@ const Login = (props) => {
             <input type="checkbox" /> Remember me
           </label>
         </div>
-        <button type="submit" className="home-button">
-          <p className="btn-text">Login</p>
+        <button type="submit" className="form-btn">
+          Login
         </button>
       </form>
     </section>

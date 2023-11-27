@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import {
   UPDATE_USER_EMAIL,
   UPDATE_USER_NAME,
   DELETE_USER,
 } from "../utils/mutations";
-import Button from "react-bootstrap/Button";
 
 // update user email
 const UpdateUserEmail = ({ userId }) => {
@@ -37,9 +36,9 @@ const UpdateUserEmail = ({ userId }) => {
 
   return (
     <div>
-      <Button onClick={handleUpdateEmail} disabled={loading}>
-        {loading ? "Updating..." : "Update User"}
-      </Button>
+      <button className="form-btn" onClick={handleUpdateEmail} disabled={loading}>
+        {loading ? "Updating..." : "Update Email"}
+      </button>
 
       {error && <p>Error: {error.message}</p>}
     </div>
@@ -76,9 +75,9 @@ const UpdateUserName = ({ userId }) => {
 
   return (
     <div>
-      <Button onClick={handleUpdateName} disabled={loading}>
+      <button className="form-btn" onClick={handleUpdateName} disabled={loading}>
         {loading ? "Updating..." : "Update User"}
-      </Button>
+      </button>
 
       {error && <p>Error: {error.message}</p>}
     </div>
@@ -105,13 +104,13 @@ const DeleteUser = ({ userId }) => {
 
   return (
     <div>
-      <Button onClick={handleDeleteUser} disabled={loading}>
+      <button className="form-btn" onClick={handleDeleteUser} disabled={loading}>
         {loading ? "Deleting..." : "Delete User"}
-      </Button>
+      </button>
 
       {error && <p>Error: {error.message}</p>}
     </div>
   );
 };
 
-export default { UpdateUserEmail, UpdateUserName, DeleteUser };
+export { UpdateUserEmail, UpdateUserName, DeleteUser };

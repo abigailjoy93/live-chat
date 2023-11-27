@@ -9,3 +9,8 @@
 .join-btn-text {
   font-size: 35px;
 }
+
+.join-btn:hover {
+  color: var(--text);
+  background-color: var(--light);
+}
