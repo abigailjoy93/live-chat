@@ -3,6 +3,8 @@
   height: 25vh;
   margin-top: 7rem;
   margin-left: 35rem;
+  background-color: var(--accent);
+  color: var(--text);
   border-radius: 20px;
 }
 
@@ -11,6 +13,5 @@
 }
 
 .join-btn:hover {
-  color: var(--text);
-  background-color: var(--light);
+  background-color: var(--pop);
 }
