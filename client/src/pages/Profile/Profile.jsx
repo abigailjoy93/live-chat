@@ -1,15 +1,21 @@
 // imports
-import { Navigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ONE_USER, QUERY_ME } from "../../utils/queries";
 import userKitty from "../../assets/cat.png";
 import Auth from "../../utils/auth";
 import "./Profile.css";
-import { UpdateUserEmail, UpdateUserName, DeleteUser } from "../../components/ProfileMutations";
+import {
+  UpdateUserEmail,
+  UpdateUserName,
+  DeleteUser,
+} from "../../components/ProfileMutations";
 
 // page function
 const Profile = () => {
   // const { username: userParam } = useParams();
+  let navigate = useNavigate();
 
   const userParam = Auth.getProfile().data.username;
 
@@ -18,19 +24,23 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.user || {};
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    console.log("!!!")
-    console.log(Navigate)
-    return <Navigate to="/profile" />; //<-- make this go to profile page
-  }
 
-  if (loading) {
-    return <div className="error-text">Loading...</div>;
-  }
+  // useEffect(() => {
+    if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+      console.log("!!!");
+      // navigate("/profile");
+      return <Navigate to="/profile" />;
+    }
 
-  if (!user?.username) {
-    return <h4 className="error-text">Please log in to see this!</h4>;
-  }
+    if (loading) {
+      return <div className="error-text">Loading...</div>;
+    }
+
+    if (!user?.username) {
+      return <h4 className="error-text">Please log in to see this!</h4>;
+    }
+
+  // }, [userParam]);
 
   return (
     <section className="aboutme-container">
@@ -49,7 +59,7 @@ const Profile = () => {
             <p>
               User Name: <strong>{user.username}</strong>
             </p>
-            < UpdateUserName />
+            <UpdateUserName />
             {/* <button className="form-btn" onClick={ UpdateUserName }>
               Change Username
             </button> */}
@@ -59,14 +69,14 @@ const Profile = () => {
             <p>
               Email Address: <strong>{user.email}</strong>
             </p>
-            < UpdateUserEmail />
+            <UpdateUserEmail />
             {/* <button className="form-btn" onClick={UpdateUserEmail}>
               Change Email
             </button> */}
           </li>
           <br></br>
           <li className="">
-            < DeleteUser />
+            <DeleteUser />
             {/* <button className="form-btn" onClick={DeleteUser}>
               Delete Account
             </button> */}
