@@ -44,7 +44,7 @@ const Profile = () => {
         <ul className="aboutme-list">
           <li className="aboutme-listitem">
             <p>
-              User Name: <strong>Very Berry{user.username}</strong>
+              User Name: <strong>{user.username}</strong>
             </p>
             <button className="aboutme-btn">
               <p className="btn-text">Change Username</p>
@@ -53,7 +53,7 @@ const Profile = () => {
           <br></br>
           <li className="aboutme-listitem">
             <p>
-              Email Address: <strong>veryberry@email.com{user.email}</strong>
+              Email Address: <strong>{user.email}</strong>
             </p>
             <button className="aboutme-btn">
               <p className="btn-text">Change Email</p>

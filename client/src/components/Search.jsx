@@ -17,16 +17,16 @@ const Search = () => {
         <input
           className="searchtext form-control"
           type="text"
-          placeholder="Search..."
+          placeholder="Search users..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <button
-          className="searchbutton"
+          className="nav-btn"
           onClick={handleSearch}
           disabled={loading}
         >
-          <p className="btn-text">Search</p>
+          Search
         </button>
       </div>
       {loading && <p>Loading...</p>}
