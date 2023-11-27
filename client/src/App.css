@@ -10,6 +10,11 @@ body {
   text-align: center;
 }
 
+/* error page */
+.error-text {
+  color: var(--accent)
+}
+
 /* header */
 header {
   position: fixed;

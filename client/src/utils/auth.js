@@ -1,4 +1,6 @@
 import * as decode from "jwt-decode";
+// import { decode } from "jwt-decode";
+// import * as jwtDecode from "jwt-decode";
 
 class AuthService {
   getProfile() {
