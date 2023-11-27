@@ -1,72 +1,48 @@
-.searchbox {
-  position: absolute;
-  right: 45px;
-  top: 3px;
-}
+/* container */
 
-.searchtext {
-  height: 25px;
-  width: 250px;
-  margin-right: 5px;
-}
-
-.searchbutton {
-  height: 25px;
-  position: absolute;
-  right: 1px;
-  top: 3px;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-}
-
-button {
-  height: 35px;
-  width: 100px;
-  font-size: 15px;
-}
-
-/* .logo {
-  height: 22vh;
-  position: absolute;
-  left: 645px;
-  top: 100px;
-} */
-
-.container {
-  margin-top: 5rem;
+.home-container {
+  margin-top: 10rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
-.box {
+/* form */
+
+.form-box {
   width: 35vw;
   height: 52vh;
   border: 5px solid var(--accent);
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-bottom: 15px;
-  margin-top: 5px;
+  border-radius: 15px;
   background-color: var(--light);
 }
 
 .form {
-  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 .box-title {
   font-size: 32px;
 }
 
-#first-name,
-#last-name {
-  width: 15vw;
+.form-box-label {
+  font-size: 1.2rem;
 }
 
-#first-name-text,
-#last-name-text {
-  margin: 75px;
+.form-control {
+  /* width: 30vw; */
+  border: 2px solid var(--pop);
+}
+
+.home-button {
+  padding: 3px;
+  height: 35px;
+  width: 100px;
+  font-size: 15px;
 }
 
 .remember,
@@ -75,49 +51,40 @@ button {
   font-weight: bold;
 }
 
-.form-control {
-  height: 28px;
-  width: 30vw;
-  align-items: center;
-  border: 2px solid var(--pop);
-}
+/* #first-name,
+#last-name {
+  width: 15vw;
+} */
 
-.email,
+/* #first-name-text,
+#last-name-text {
+  margin: 75px;
+} */
+
+/* .email,
 .password,
 .name,
 .username {
   font-size: 15px;
-}
+} */
 
-.name-inputs {
+/* .name-inputs {
   display: flex;
   justify-content: space-between;
-}
+} */
 
-.name-label {
+/* .name-label {
   margin: 0 10px;
-}
+} */
 
-.box-label {
-  font-size: 1.2rem;
-}
-
-.email,
+/* .email,
 .username,
 .password {
   margin-top: 10px;
-}
+} */
 
-.btn {
-  cursor: pointer;
-  background-color: var(--main);
-  color: var(--pop);
-  border: none;
-  border-radius: 5px;
-}
-
-.invalid-message {
+/* .invalid-message {
   color: red;
   font-size: 12px;
   margin-top: 5px;
-}
+} */

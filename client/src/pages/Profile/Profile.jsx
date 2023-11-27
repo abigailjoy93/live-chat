@@ -3,10 +3,9 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ONE_USER, QUERY_ME } from "../../utils/queries";
 import userKitty from "../../assets/cat.png";
-import logo from "../../assets/liveChatHighResolutionLogoTransparent.png";
 import Auth from "../../utils/auth";
 import "./Profile.css";
-// import { UPDATE_USER_EMAIL, UPDATE_USER_NAME, DELETE_USER } from "../components/ProfileMutations"
+import { UpdateUserEmail, UpdateUserName, DeleteUser } from "../../components/ProfileMutations";
 
 // page function
 const Profile = () => {
@@ -31,41 +30,47 @@ const Profile = () => {
 
   return (
     <section className="aboutme-container">
-      <div className="aboutme-box">
-        <div className="aboutme-card">
-          <header className="aboutme-name">
-            <h2>KITTY</h2>
-          </header>
-          <div className="aboutme-contentcard">
-            <div className="aboutme-userimagecard">
-              <img className="userkittyimage" src={userKitty}></img>
-            </div>
-            <ul>
-              <div className="aboutme-username">
-                <li>
-                  User Name: <strong>{user.username}</strong>
-                </li>
-                <button className="aboutme-changeusername">Change Username</button>
-              </div>
-              <br></br>
-              <div className="aboutme-emailaddress">
-                <li>
-                  Email Address: <strong>{user.email}</strong>
-                </li>
-                <button className="aboutme-changeusername">
-                  Change Email Address
-                </button>
-              </div>
-              <br></br>
-              <div className="aboutme-deleteaccount">
-                <li className="aboutme-delete">
-                  <button className="deleteButton">Delete Account</button>
-                </li>
-              </div>
-            </ul>
-          </div>
+      {/* <div className="aboutme-box"> */}
+      <div className="aboutme-card">
+        {/* <div className="aboutme-name">
+          <h2>KITTY</h2>
+        </div> */}
+        {/* <div className="aboutme-contentcard"> */}
+        <div className="aboutme-image">
+          <img className="userkittyimage" src={userKitty}></img>
         </div>
+        {/* right side */}
+        <ul className="aboutme-list">
+          <li className="aboutme-listitem">
+            <p>
+              User Name: <strong>{user.username}</strong>
+            </p>
+            < UpdateUserName />
+            {/* <button className="form-btn" onClick={ UpdateUserName }>
+              Change Username
+            </button> */}
+          </li>
+          <br></br>
+          <li className="aboutme-listitem">
+            <p>
+              Email Address: <strong>{user.email}</strong>
+            </p>
+            < UpdateUserEmail />
+            {/* <button className="form-btn" onClick={UpdateUserEmail}>
+              Change Email
+            </button> */}
+          </li>
+          <br></br>
+          <li className="">
+            < DeleteUser />
+            {/* <button className="form-btn" onClick={DeleteUser}>
+              Delete Account
+            </button> */}
+          </li>
+        </ul>
+        {/* </div> */}
       </div>
+      {/* </div> */}
     </section>
   );
 };
