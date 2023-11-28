@@ -1,6 +1,4 @@
 // imports
-import { useEffect } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ONE_USER, QUERY_ME } from "../../utils/queries";
 import userKitty from "../../assets/cat.png";
@@ -15,32 +13,19 @@ import {
 // page function
 const Profile = () => {
   // const { username: userParam } = useParams();
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   const userParam = Auth.getProfile().data.username;
 
-  const { loading, data } = useQuery(userParam ? QUERY_ONE_USER : QUERY_ME, {
+  const { data } = useQuery(userParam ? QUERY_ONE_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
+  console.log(data)
+
   const user = data?.me || data?.user || {};
 
-  // useEffect(() => {
-    if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-      console.log("!!!");
-      // navigate("/profile");
-      return <Navigate to="/profile" />;
-    }
-
-    if (loading) {
-      return <div className="error-text">Loading...</div>;
-    }
-
-    if (!user?.username) {
-      return <h4 className="error-text">Please log in to see this!</h4>;
-    }
-
-  // }, [userParam]);
+  console.log(user)
 
   return (
     <section className="aboutme-container">
