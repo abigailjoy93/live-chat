@@ -107,6 +107,10 @@ footer {
   border-radius: 10px;
   color: var(--pop);
 }
+.form-btn:hover {
+  color: var(--text);
+  background-color: var(--pop)
+}
 .nav-btn {
   height: 3rem;
   width: 6rem;
@@ -117,6 +121,6 @@ footer {
   border-radius: 10px;
   color: var(--text)
 }
-button:hover {
+.nav-btn:hover {
   background-color: var(--accent);
 }
