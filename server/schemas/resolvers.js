@@ -48,8 +48,7 @@ const resolvers = {
         { new: true }
       );
 
-      const token = signToken(user);
-      return { token, user };
+      return user ;
     },
     updateUserEmail: async ({ id, email }) => {
       const user = await User.findOneAndUpdate(
@@ -58,8 +57,7 @@ const resolvers = {
         { new: true }
       );
 
-      const token = signToken(user);
-      return { token, user };
+      return user;
     },
     deleteUser: async ({ id }) => {
       try {
@@ -69,8 +67,7 @@ const resolvers = {
           return { error: "User not found" };
         }
 
-        const token = signToken(user);
-        return { token, user };
+        console.log("User deleted");
       } catch (error) {
         return { error: "Error deleting user" };
       }

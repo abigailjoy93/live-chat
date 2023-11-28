@@ -18,11 +18,8 @@ const Profile = () => {
     variables: { username: userParam },
   });
 
-  console.log(data)
-
   const user = data?.me || data?.user || {};
-
-  console.log(user)
+  const userId = user._id
 
   return (
     <section className="aboutme-container">
@@ -37,18 +34,18 @@ const Profile = () => {
             <p>
               User Name: <strong>{user.username}</strong>
             </p>
-            <UpdateUserName />
+            <UpdateUserName userId={userId}/>
           </li>
           <br></br>
           <li className="aboutme-listitem">
             <p>
               Email Address: <strong>{user.email}</strong>
             </p>
-            <UpdateUserEmail />
+            <UpdateUserEmail userId={userId}/>
           </li>
           <br></br>
           <li className="">
-            <DeleteUser />
+            <DeleteUser userId={userId}/>
           </li>
         </ul>
       </div>
