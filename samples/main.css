@@ -13,10 +13,9 @@ h1 {
 }
 
 body {
-  background-image: url("./assets/astronaut_v1.png");
+  background-image: url("./assets/astronaut_v3.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   color: var(--text);
   text-align: center;
   margin: 25px;

@@ -8,13 +8,121 @@
   color: var(--pop);
 }
 
+* {
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 768px) {
+/* For Mobile */
 main {
   display: flex;
   flex-direction: column;
 }
 
-.aboutme-box,
-.aboutme-container {
+.aboutmecard {
+  background-color: var(--light);
+  height: auto;
+  width: 95%;
+  margin: 5%;
+}
+
+.contentcard {
+  padding-bottom: 3%;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  color: var(--text);
+  font-size: 350%;
+}
+
+.userimagecard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -25%;
+}
+
+.aboutmebox,
+.aboutmecontainer {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -10%;
+  justify-content: center;
+}
+
+.userimage {
+  max-width: 60%;
+  height: auto;
+  margin: 5%;
+  padding: 2%;
+  border: solid 3px var(--main);
+}
+
+ul {
+  list-style-type: none;
+  margin-left: -12%;
+}
+
+.section1,
+.section2 {
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+}
+
+.userName,
+.emailAddress {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid 3px var(--main);
+  padding: 3%;
+}
+
+
+.changeusername,
+.changeemailaddress {
+  border: solid 3px var(--main);
+  background-color: var(--pop);
+  padding: 1%;
+  margin: 1%;
+  height: auto;
+  font-size: large;
+}
+
+.delete {
+  margin: 2%;
+  margin-top: 5%;
+}
+
+.deletebutton {
+  height: auto;
+  border: solid 3px var(--main);
+  padding: 1% 10%;
+  background-color: var(--pop);
+  font-size: larger;
+}
+
+.logo {
+  height: 10%;
+  width: auto;
+  background-color: var(--text);
+  border-radius: 5px;
+}
+}
+
+end about me */
+
+
+/* main {
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutmebox,
+.aboutmecontainer {
   margin-left: auto;
   margin-right: auto;
   margin-top: -30px;
@@ -22,31 +130,31 @@ main {
   right: 15px;
 }
 
-.aboutme-card {
+.aboutmecard {
   background-color: var(--light);
   height: auto;
   width: 60vw;
 }
 
-.aboutme-contentcard {
+.contentcard {
   padding-bottom: 15px;
   display: flex;
   flex-direction: row;
 }
 
-.aboutme-name {
+.name {
   color: var(--text);
   font-size: 50px;
   margin-bottom: -75px;
 }
 
-.aboutme-userimagecard {
+.userimagecard {
   display: flex;
   align-items: center;
   margin-top: -75px;
 }
 
-.userkitty-image {
+.userimage {
   max-width: 15vw;
   height: auto;
   margin: 15px;
@@ -58,8 +166,8 @@ ul {
   list-style-type: none;
 }
 
-.aboutme-username,
-.aboutme-emailaddress {
+.userName,
+.emailAddress {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -67,8 +175,8 @@ ul {
   padding: 3px;
 }
 
-.aboutme-changeusername,
-.aboutme-changeemailaddress {
+.changeusername,
+.changeemailaddress {
   position: fixed;
   border: solid 3px var(--main);
   background-color: var(--pop);
@@ -76,20 +184,20 @@ ul {
   margin-top: -5px;
 }
 
-.aboutme-changeusername {
+.changeusername {
   right: 100px;
 }
 
-.aboutme-changeemailaddress {
+.changeemailaddress {
   right: 85px;
 }
 
-.aboutme-delete {
+.delete {
   margin: 15px;
   margin-top: 35px;
 }
 
-.aboutme-deletebutton {
+.deletebutton {
   height: auto;
   border: solid 3px var(--main);
   padding-left: 20px;
@@ -98,16 +206,19 @@ ul {
   font-size: larger;
 }
 
-.aboutme-footer {
+.footer {
   position: fixed;
   bottom: 0px;
   margin: auto;
 }
 
-.aboutme-logo {
+.logo {
   height: 175px;
   width: auto;
   margin-left: 600px;
+  background-color: var(--text);
+  padding: 5px;
+  border-radius: 5px;
 }
 
-/* end about me */
+end about me */
