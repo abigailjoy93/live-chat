@@ -8,7 +8,9 @@ const Search = () => {
   const [searchUsers, { loading, data }] = useLazyQuery(SEARCH_USERS);
 
   const handleSearch = () => {
-    searchUsers({ variables: { query } });
+    if (query.trim() !== "") {
+      searchUsers({ variables: { query } });
+    }
   };
 
   return (
@@ -21,11 +23,7 @@ const Search = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button
-          className="nav-btn"
-          onClick={handleSearch}
-          disabled={loading}
-        >
+        <button className="nav-btn" onClick={handleSearch} disabled={loading}>
           Search
         </button>
       </div>

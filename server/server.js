@@ -7,6 +7,7 @@ const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 const path = require("path");
 const { Message } = require("./models");
+const cors = require("cors");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -17,6 +18,10 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
+
+// io.on("connection", (socket) => {
+//   console.log("it works");
+// });
 
 io.on("connection", async (socket) => {
   socket.on("chat message", async (msg, clientOffset) => {
@@ -48,6 +53,7 @@ const startApolloServer = async () => {
 
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
+  app.use(cors());
 
   app.use("/graphql", expressMiddleware(server));
 
@@ -61,7 +67,7 @@ const startApolloServer = async () => {
   }
 
   db.once("open", () => {
-    app.listen(PORT, () => {
+    httpServer.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
     });
