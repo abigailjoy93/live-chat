@@ -35,8 +35,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-  // Issues were somehow faced with state possibly??
-  // const [count, setCount] = useState(0);
 
   return (
     <ApolloProvider client={client}>

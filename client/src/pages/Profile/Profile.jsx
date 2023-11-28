@@ -12,9 +12,6 @@ import {
 
 // page function
 const Profile = () => {
-  // const { username: userParam } = useParams();
-  // let navigate = useNavigate();
-
   const userParam = Auth.getProfile().data.username;
 
   const { data } = useQuery(userParam ? QUERY_ONE_USER : QUERY_ME, {
@@ -29,12 +26,8 @@ const Profile = () => {
 
   return (
     <section className="aboutme-container">
-      {/* <div className="aboutme-box"> */}
       <div className="aboutme-card">
-        {/* <div className="aboutme-name">
-          <h2>KITTY</h2>
-        </div> */}
-        {/* <div className="aboutme-contentcard"> */}
+        {/* left side */}
         <div className="aboutme-image">
           <img className="userkittyimage" src={userKitty}></img>
         </div>
@@ -45,9 +38,6 @@ const Profile = () => {
               User Name: <strong>{user.username}</strong>
             </p>
             <UpdateUserName />
-            {/* <button className="form-btn" onClick={ UpdateUserName }>
-              Change Username
-            </button> */}
           </li>
           <br></br>
           <li className="aboutme-listitem">
@@ -55,21 +45,13 @@ const Profile = () => {
               Email Address: <strong>{user.email}</strong>
             </p>
             <UpdateUserEmail />
-            {/* <button className="form-btn" onClick={UpdateUserEmail}>
-              Change Email
-            </button> */}
           </li>
           <br></br>
           <li className="">
             <DeleteUser />
-            {/* <button className="form-btn" onClick={DeleteUser}>
-              Delete Account
-            </button> */}
           </li>
         </ul>
-        {/* </div> */}
       </div>
-      {/* </div> */}
     </section>
   );
 };
