@@ -7,8 +7,14 @@ import Search from "./Search";
 function Header() {
   // profile --> can this be optimized?
   let navigate = useNavigate();
-  const routeChange = () => {
+
+  const profileRoute = () => {
     let path = `/profile`;
+    navigate(path);
+  };
+
+  const joinRoute = () => {
+    let path = `/join`;
     navigate(path);
   };
 
@@ -26,8 +32,11 @@ function Header() {
         </div>
         {Auth.loggedIn() ? (
           <>
-            <button className="nav-btn" onClick={routeChange}>
+            <button className="nav-btn" onClick={profileRoute}>
               Profile
+            </button>
+            <button className="nav-btn" onClick={joinRoute}>
+              Join chat!
             </button>
             <button className="nav-btn" onClick={logout}>
               Logout
