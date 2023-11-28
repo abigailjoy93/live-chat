@@ -19,34 +19,34 @@ const server = new ApolloServer({
   resolvers,
 });
 
-io.on("connection", (socket) => {
-  console.log("it works");
-});
-
-// io.on("connection", async (socket) => {
-//   socket.on("chat message", async (msg, clientOffset) => {
-//     const message = new Message({ content: msg, client_offset: clientOffset });
-//     await message.save();
-//     io.emit("chat message", {
-//       id: message.id,
-//       content: message.content,
-//       client_offset: message.client_offset,
-//     });
-//   });
-
-//   if (!socket.recovered) {
-//     const messages = await Message.find({
-//       id: { $gt: socket.handshake.auth.serverOffset || 0 },
-//     });
-//     messages.forEach((message) => {
-//       socket.emit("chat message", {
-//         id: message.id,
-//         content: message.content,
-//         client_offset: message.client_offset,
-//       });
-//     });
-//   }
+// io.on("connection", (socket) => {
+//   console.log("it works");
 // });
+
+io.on("connection", async (socket) => {
+  socket.on("chat message", async (msg, clientOffset) => {
+    const message = new Message({ content: msg, client_offset: clientOffset });
+    await message.save();
+    io.emit("chat message", {
+      id: message.id,
+      content: message.content,
+      client_offset: message.client_offset,
+    });
+  });
+
+  if (!socket.recovered) {
+    const messages = await Message.find({
+      id: { $gt: socket.handshake.auth.serverOffset || 0 },
+    });
+    messages.forEach((message) => {
+      socket.emit("chat message", {
+        id: message.id,
+        content: message.content,
+        client_offset: message.client_offset,
+      });
+    });
+  }
+});
 
 const startApolloServer = async () => {
   await server.start();
