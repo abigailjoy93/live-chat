@@ -4,8 +4,18 @@
   margin-top: 10rem;
   display: flex;
   justify-content: space-evenly;
+  /* flex-flow: column; */
   align-items: center;
 }
+
+@media only screen and (max-width: 1600px) {
+  .home-container {
+    flex-flow: column;
+    justify-content: space-around;
+  }
+
+}
+
 
 /* form */
 
@@ -49,3 +59,43 @@
   font-size: 13px;
   font-weight: bold;
 }
+
+<<<<<<< Updated upstream=======
+/* #first-name,
+#last-name {
+  width: 15vw;
+} */
+
+/* #first-name-text,
+#last-name-text {
+  margin: 75px;
+} */
+
+/* .email,
+.password,
+.name,
+.username {
+  font-size: 15px;
+} */
+
+/* .name-inputs {
+  display: flex;
+  justify-content: space-between;
+} */
+
+/* .name-label {
+  margin: 0 10px;
+} */
+
+/* .email,
+.username,
+.password {
+  margin-top: 10px;
+} */
+
+/* .invalid-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+} */
+>>>>>>>Stashed changes
