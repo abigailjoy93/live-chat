@@ -6,46 +6,70 @@ const { Server } = require("socket.io");
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 const path = require("path");
-const { Message } = require("./models");
+const { Message } = require("./models/Message");
 const cors = require("cors");
+http = require("http");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-const httpServer = createServer(app);
-const io = new Server(httpServer);
+const httpServer = http.createServer(app);
+const io = new Server(httpServer, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
 
-// io.on("connection", (socket) => {
-//   console.log("it works");
-// });
+const CHAT_BOT = "ChatBot";
 
-io.on("connection", async (socket) => {
-  socket.on("chat message", async (msg, clientOffset) => {
-    const message = new Message({ content: msg, client_offset: clientOffset });
-    await message.save();
-    io.emit("chat message", {
-      id: message.id,
-      content: message.content,
-      client_offset: message.client_offset,
-    });
+let chatRoom = "";
+let allUsers = [];
+
+io.on("connection", (socket) => {
+  console.log(`User connected ${socket.id}`);
+
+  socket.on("chat message", (msg) => {
+    console.log(msg);
   });
 
-  if (!socket.recovered) {
-    const messages = await Message.find({
-      id: { $gt: socket.handshake.auth.serverOffset || 0 },
+  socket.on("join_room", (data) => {
+    const { username, room } = data;
+    socket.join(room);
+    let __createdtime__ = Date.now();
+
+    socket.to(room).emit("receive_message", {
+      message: `${username} has joined the chat room`,
+      username: CHAT_BOT,
+      __createdtime__,
     });
-    messages.forEach((message) => {
-      socket.emit("chat message", {
-        id: message.id,
-        content: message.content,
-        client_offset: message.client_offset,
-      });
+
+    socket.emit("receive_message", {
+      message: `Welcome ${username}`,
+      username: CHAT_BOT,
+      __createdtime__,
     });
-  }
+
+    chatRoom = room;
+    allUsers.push({ id: socket.id, username, room });
+    chatRoomUsers = allUsers.filter((user) => user.room === room);
+    socket.to(room).emit("chatroom_users", chatRoomUsers);
+    socket.emit("chatroom_users", chatRoomUsers);
+  });
+
+  // socket.on("chat message", async (msg, clientOffset) => {
+  //   const message = new Message({ content: msg, client_offset: clientOffset });
+  //   await message.save();
+  //   io.emit("chat message", {
+  //     id: message.id,
+  //     content: message.content,
+  //     client_offset: message.client_offset,
+  //   });
+  // });
 });
 
 const startApolloServer = async () => {
