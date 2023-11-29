@@ -2,9 +2,17 @@ const { Schema, model }= require('mongoose');
 
 // Mongoose models
 const MessageSchema = new Schema({
-    Message: {
-  client_offset: String,
-  content: String,
+    username: {
+      type: String
+    },
+    room: {
+      type: String
+    },
+    message: {
+      type: String
+    },
+    createdtime: {
+      type: String
     }
 });
 

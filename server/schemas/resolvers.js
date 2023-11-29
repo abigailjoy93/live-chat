@@ -13,7 +13,7 @@ const resolvers = {
 
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        return User.findOne({ _id: context.user._id }).populate("messages");
       }
       throw AuthenticationError;
     },
@@ -41,16 +41,16 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUserName: async ( parent, { id, username } ) => {
+    updateUserName: async (parent, { id, username }) => {
       const user = await User.findOneAndUpdate(
         { _id: id },
         { $set: { username: username } },
         { new: true }
       );
 
-      return user ;
+      return user;
     },
-    updateUserEmail: async ( parent, { id, email } ) => {
+    updateUserEmail: async (parent, { id, email }) => {
       const user = await User.findOneAndUpdate(
         { _id: id },
         { $set: { email: email } },
@@ -63,7 +63,7 @@ const resolvers = {
       try {
         const user = await User.findOneAndDelete({ _id: id });
 
-        console.log(user)
+        console.log(user);
 
         if (!user) {
           return { error: "User not found" };
@@ -93,10 +93,17 @@ const resolvers = {
     },
 
     // socket.io post message
-    postMessage: async (_, { content, clientOffset }) => {
-      const message = new Message({ content, client_offset: clientOffset });
-      await message.save();
-      return message.id;
+    saveMessage: async (_, { message, username, room }, context) => {
+      if (context.user) {
+        const savedMessage = await Message.create({ message, username, room });
+        const user = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { messages: savedMessage._id } },
+          { new: true }
+        );
+        return user;
+      }
+      throw AuthenticationError;
     },
   },
 

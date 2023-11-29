@@ -4,12 +4,15 @@ type User {
   username: String!
   email: String!
   password: String!
+  messages: [Message]
 }
 
 type Message {
   id: ID!
-  client_offset: String!
-  content: String!
+  username: String!
+  room: String!
+  message: String
+  createdtime: String
 }
 
 type Auth {
@@ -23,7 +26,6 @@ type Query {
   me: User
   searchUsers(query: String!): [User]
   messages: [Message]
-
 }
 
 type Mutation {
@@ -32,7 +34,7 @@ type Mutation {
   updateUserEmail(_id: ID!, email: String!): User
   deleteUser(_id: ID!): User
   login(email:String!, password: String!):Auth
-  postMessage(content: String!, clientOffset: String!): ID
+  saveMessage(message: String, username: String!, room: String!): User
 },
 
 type Subscription {
