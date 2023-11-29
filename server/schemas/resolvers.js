@@ -41,33 +41,35 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUserName: async ({ id, username }) => {
+    updateUserName: async ( parent, { id, username } ) => {
       const user = await User.findOneAndUpdate(
         { _id: id },
-        { $set: { username } },
+        { $set: { username: username } },
         { new: true }
       );
 
       return user ;
     },
-    updateUserEmail: async ({ id, email }) => {
+    updateUserEmail: async ( parent, { id, email } ) => {
       const user = await User.findOneAndUpdate(
         { _id: id },
-        { $set: { email } },
+        { $set: { email: email } },
         { new: true }
       );
 
       return user;
     },
-    deleteUser: async ({ id }) => {
+    deleteUser: async (_, { id }) => {
       try {
         const user = await User.findOneAndDelete({ _id: id });
+
+        console.log(user)
 
         if (!user) {
           return { error: "User not found" };
         }
 
-        console.log("User deleted");
+        return user;
       } catch (error) {
         return { error: "Error deleting user" };
       }

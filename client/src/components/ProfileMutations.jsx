@@ -18,6 +18,7 @@ const UpdateUserEmail = ({ userId }) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log("!!!")
 
     setFormState({
       ...formState,
@@ -25,7 +26,8 @@ const UpdateUserEmail = ({ userId }) => {
     });
   };
 
-  const handleUpdateEmail = async () => {
+  const handleUpdateEmail = async (event) => {
+    event.preventDefault();
     try {
       const { data } = await updateUserMutation({
         variables: {
@@ -72,6 +74,7 @@ const UpdateUserName = ({ userId }) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log("!!!")
 
     setFormState({
       ...formState,
@@ -79,7 +82,8 @@ const UpdateUserName = ({ userId }) => {
     });
   };
 
-  const handleUpdateName = async () => {
+  const handleUpdateName = async (event) => {
+    event.preventDefault();
     try {
       const { data } = await updateUserMutation({
         variables: {
@@ -122,7 +126,8 @@ const UpdateUserName = ({ userId }) => {
 const DeleteUser = ({ userId }) => {
   const [deleteUserMutation, { loading, error }] = useMutation(DELETE_USER);
 
-  const handleDeleteUser = async () => {
+  const handleDeleteUser = async (event) => {
+    event.preventDefault();
     try {
       const { data } = await deleteUserMutation({
         variables: {
@@ -143,7 +148,7 @@ const DeleteUser = ({ userId }) => {
         onClick={handleDeleteUser}
         disabled={loading}
       >
-        {loading ? "Deleting..." : "Deleted User"}
+        {loading ? "Deleting..." : "Delete User"}
       </button>
 
       {error && <p>Error: {error.message}</p>}
