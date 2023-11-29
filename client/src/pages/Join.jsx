@@ -12,8 +12,8 @@ const Join = () => {
   };
 
   return (
-    <div className="d-grid gap-2">
-      <Button className="btn btn-primary" type="button" onClick={routeChange}>
+    <div className="buttonContainer">
+      <Button className="connectButton" type="button" onClick={routeChange}>
         Connect me to a chat!
       </Button>
     </div>

@@ -1,42 +1,80 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  /* text-align: center; */
   --main: #4d4743;
   --accent: #c7cac8;
   --text: #0d0e10;
   --pop: #bf8b46;
   --second: #d8a762;
   --light: #dadee0;
+}
+* {
+  box-sizing: border-box;
   font-family: "Ysabeau Infant", sans-serif;
   color: var(--pop);
-  /* Form */
-  /* --main: #e08d3c;
-  --accent: #3d0c02;
-  --text: #000000;
-  --pop: #f5deb3;
-  --light: #f4f0ec;
-  font-family: "Ysabeau Infant", sans-serif;
-  color: var(--pop); */
 }
 
 body {
   background-color: transparent !important;
+  display: grid;
+  place-content: center;
+  grid-template-rows: 80px 200px;
 }
 
 /* ChatApp and Header */
 
+/* navbar container - referrenced in Header.jsx*/
 .navbar {
-  top: -400px;
-  width: 100%;
+  top: -35vh;
+  width: 85vw;
   height: 100px;
+  border: 3px solid var(--pop);
+  border-radius: 7px;
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  .connectButton {
+    position: absolute;
+    left: 7%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .navbar {
+    display: none;
+  }
+  .connectButton {
+    position: absolute;
+    left: 7%;
+  }
+  .logo {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    display: none;
+  }
+  button.connectButton {
+    position: absolute;
+    left: 7%;
+    height: auto;
+  }
+
+  .logo {
+    display: none;
+  }
 }
 
 .logo {
   height: 20vh;
   position: absolute;
   bottom: 20px;
+  right: 20px;
+  background-color: #0d0e10;
+  padding: 10px;
 }
 
 .chatbox-header,
@@ -215,13 +253,6 @@ button {
   font-size: 15px;
 }
 
-/* .logo {
-  height: 22vh;
-  position: absolute;
-  left: 645px;
-  top: 100px;
-} */
-
 .container {
   display: flex;
   justify-content: center;
@@ -304,6 +335,25 @@ button {
   color: var(--pop);
   border: none;
   border-radius: 5px;
+}
+
+.connectButton {
+  cursor: pointer;
+  width: 85vw;
+  background-color: var(--second);
+  color: var(--main);
+  border: 3px solid var(--pop);
+  height: 85px;
+  margin: 0px;
+  position: absolute;
+  top: 17%;
+  font-size: 35px;
+}
+
+.connectButton:hover {
+  background-color: var(--pop);
+  color: var(--text);
+  border: 3px solid var(--pop);
 }
 
 .invalid-message {
