@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 import {
   UPDATE_USER_EMAIL,
@@ -8,15 +9,25 @@ import {
 
 // update user email
 const UpdateUserEmail = ({ userId }) => {
-  const [formState] = useState({
+  const [formState, setFormState] = useState({
     email: "",
-    password: "",
   });
 
   const [updateUserMutation, { loading, error }] =
     useMutation(UPDATE_USER_EMAIL);
 
-  const handleUpdateEmail = async () => {
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    console.log("!!!")
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleUpdateEmail = async (event) => {
+    event.preventDefault();
     try {
       const { data } = await updateUserMutation({
         variables: {
@@ -35,37 +46,55 @@ const UpdateUserEmail = ({ userId }) => {
   };
 
   return (
-    <div>
-      <button className="form-btn" onClick={handleUpdateEmail} disabled={loading}>
-        {loading ? "Updating..." : "Update Email"}
-      </button>
-
-      {error && <p>Error: {error.message}</p>}
-    </div>
+    <form onSubmit={handleUpdateEmail}>
+      <div className="form-group">
+        <input
+          type="email"
+          className="form-control"
+          id="new-email"
+          name="email"
+          placeholder="New email"
+          value={formState.email}
+          onChange={handleChange}
+        />
+      </div>
+      <button className="form-btn">Update Email</button>
+    </form>
   );
 };
 
 // update user name
 const UpdateUserName = ({ userId }) => {
-  const [formState] = useState({
+  const [formState, setFormState] = useState({
     username: "",
-    password: "",
   });
 
   const [updateUserMutation, { loading, error }] =
     useMutation(UPDATE_USER_NAME);
 
-  const handleUpdateName = async () => {
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    console.log("!!!")
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleUpdateName = async (event) => {
+    event.preventDefault();
     try {
       const { data } = await updateUserMutation({
         variables: {
-          ...formState,
           _id: userId,
           newUserData: {
-            username: "",
+            username: formState.username,
           },
         },
       });
+
+      console.log(data);
 
       console.log("User updated:", data);
     } catch (error) {
@@ -74,13 +103,22 @@ const UpdateUserName = ({ userId }) => {
   };
 
   return (
-    <div>
-      <button className="form-btn" onClick={handleUpdateName} disabled={loading}>
-        {loading ? "Updating..." : "Update User"}
+    <form onSubmit={handleUpdateName}>
+      <div className="form-group">
+        <input
+          type="text"
+          className="form-control"
+          id="new-user"
+          name="username"
+          placeholder="New username"
+          value={formState.username}
+          onChange={handleChange}
+        />
+      </div>
+      <button type="submit" className="form-btn">
+        Update User
       </button>
-
-      {error && <p>Error: {error.message}</p>}
-    </div>
+    </form>
   );
 };
 
@@ -88,7 +126,8 @@ const UpdateUserName = ({ userId }) => {
 const DeleteUser = ({ userId }) => {
   const [deleteUserMutation, { loading, error }] = useMutation(DELETE_USER);
 
-  const handleDeleteUser = async () => {
+  const handleDeleteUser = async (event) => {
+    event.preventDefault();
     try {
       const { data } = await deleteUserMutation({
         variables: {
@@ -104,7 +143,11 @@ const DeleteUser = ({ userId }) => {
 
   return (
     <div>
-      <button className="form-btn" onClick={handleDeleteUser} disabled={loading}>
+      <button
+        className="form-btn"
+        onClick={handleDeleteUser}
+        disabled={loading}
+      >
         {loading ? "Deleting..." : "Delete User"}
       </button>
 

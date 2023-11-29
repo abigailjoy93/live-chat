@@ -1,12 +1,12 @@
 .aboutme-container {
-  margin-left: auto;
-  margin-right: auto;
-  margin: 20rem;
+  /* margin-left: auto;
+  margin-right: auto; */
+  margin: 15rem;
 }
 
 .aboutme-card {
   background-color: var(--light);
-  height: 50vh;
+  height: 55vh;
   width: 60vw;
   padding: 2rem;
   display: flex;
