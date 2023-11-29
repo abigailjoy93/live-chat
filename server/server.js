@@ -33,8 +33,10 @@ let allUsers = [];
 io.on("connection", (socket) => {
   console.log(`User connected ${socket.id}`);
 
-  socket.on("chat message", (msg) => {
-    console.log(msg);
+  socket.on("chat message", (data) => {
+    const { username, room, message, __createdtime__ } = data;
+    console.log(data);
+    io.in(room).emit("receive_message", data); // Send to all users in room, including sender
   });
 
   socket.on("join_room", (data) => {

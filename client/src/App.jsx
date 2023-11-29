@@ -50,7 +50,7 @@ function App() {
     const token = localStorage.getItem("id_token");
     if (token) {
       const authenticatedUser = Auth.getUserFromToken(token);
-      setUsername(authenticatedUser);
+      setUsername(authenticatedUser.data.username);
     }
   }, []);
 

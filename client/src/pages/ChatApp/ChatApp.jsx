@@ -7,7 +7,7 @@ import { format } from "date-fns";
 import "../ChatApp/ChatApp.css";
 
 // Component definition
-const chatApp = ({ socket }) => {
+const chatApp = ({ socket, username }) => {
   // State for storing messages
   const [messagesReceived, setMessagesReceived] = useState([
     // {
@@ -17,7 +17,7 @@ const chatApp = ({ socket }) => {
     // },
   ]);
   // State for handling input value
-  const [inputValue, setInputValue] = useState("");
+  const [message, setMessage] = useState("");
 
   // Initialize socket connection
   // const socket = io("ws://localhost:3001", {
@@ -33,12 +33,17 @@ const chatApp = ({ socket }) => {
   // Event handler for form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue) {
-      console.log(inputValue);
-      // const clientOffset = `${socket.id}-${messages.length}`;
-      // console.log(messages);
-      socket.emit("chat message", inputValue);
-      setInputValue("");
+    if (message) {
+      console.log(message);
+      const room = 1;
+      const __createdtime__ = Date.now();
+      socket.emit("chat message", {
+        username,
+        room,
+        message,
+        __createdtime__,
+      });
+      setMessage("");
     }
   };
 
@@ -60,29 +65,30 @@ const chatApp = ({ socket }) => {
 
     // Clean up the socket connection when the component unmounts
     return () => {
+      <div>ass</div>;
       socket.off("receive_message");
     };
   }, [socket]);
 
-  useEffect(() => {
-    // Last 100 messages sent in the chat room (fetched from the db in backend)
-    socket.on('last_100_messages', (last100Messages) => {
-      console.log('Last 100 messages:', JSON.parse(last100Messages));
-      last100Messages = JSON.parse(last100Messages);
-      // Sort these messages by __createdtime__
-      last100Messages = sortMessagesByDate(last100Messages);
-      setMessagesReceived((state) => [...last100Messages, ...state]);
-    });
+  // useEffect(() => {
+  //   // Last 100 messages sent in the chat room (fetched from the db in backend)
+  //   socket.on('last_100_messages', (last100Messages) => {
+  //     console.log('Last 100 messages:', JSON.parse(last100Messages));
+  //     last100Messages = JSON.parse(last100Messages);
+  //     // Sort these messages by __createdtime__
+  //     last100Messages = sortMessagesByDate(last100Messages);
+  //     setMessagesReceived((state) => [...last100Messages, ...state]);
+  //   });
 
-    return () => socket.off('last_100_messages');
-  }, [socket]);
+  //   return () => socket.off('last_100_messages');
+  // }, [socket]);
 
   function formatDateFromTimestamp(timestamp) {
     const date = new Date(timestamp);
     return date.toLocaleString();
   }
 
-  const now = Date()
+  const now = Date();
 
   // JSX structure for the component
   return (
@@ -137,8 +143,8 @@ const chatApp = ({ socket }) => {
           <input
             id="input"
             autoComplete="off"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             className="textbox"
           />
           <button type="submit" className="send-button">
