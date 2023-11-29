@@ -9,6 +9,7 @@ const path = require("path");
 const { Message } = require("./models/Message");
 const cors = require("cors");
 http = require("http");
+const { authMiddleware } = require('./utils/auth');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -33,8 +34,10 @@ let allUsers = [];
 io.on("connection", (socket) => {
   console.log(`User connected ${socket.id}`);
 
-  socket.on("chat message", (msg) => {
-    console.log(msg);
+  socket.on("chat message", (data) => {
+    const { username, room, message, __createdtime__ } = data;
+    console.log(data);
+    io.in(room).emit("receive_message", data); // Send to all users in room, including sender
   });
 
   socket.on("join_room", (data) => {
@@ -79,7 +82,9 @@ const startApolloServer = async () => {
   app.use(express.json());
   app.use(cors());
 
-  app.use("/graphql", expressMiddleware(server));
+  app.use('/graphql', expressMiddleware(server, {
+    context: authMiddleware
+  }));
 
   // if we're in production, serve client/dist as static assets
   if (process.env.NODE_ENV === "production") {
