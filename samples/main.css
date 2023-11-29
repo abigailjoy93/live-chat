@@ -1,10 +1,11 @@
 :root {
-  --main: #e08d3c;
-  --accent: #3d0c02;
-  --text: #000000;
-  --pop: #f5deb3;
-  --light: #f4f0ec;
+  --main: #4d4743;
+  --accent: #c7cac8;
+  --text: #0d0e10;
+  --pop: #bf8b46;
+  --light: #dadee0;
   font-family: "Ysabeau Infant", sans-serif;
+  color: var(--pop);
 }
 
 h1 {
@@ -12,9 +13,11 @@ h1 {
 }
 
 body {
-  background-image: url("./assets/astronaut_v3.png");
+  background-image: url("./assets/astronaut_v1.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text);
   text-align: center;
   margin: 25px;
 }
