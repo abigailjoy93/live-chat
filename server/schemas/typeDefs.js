@@ -28,9 +28,9 @@ type Query {
 
 type Mutation {
   addUser(username: String!, email: String!, password: String!): Auth
-  updateUserName(id: ID!, username: String!): Auth
-  updateUserEmail(id: ID!, email: String!): Auth
-  deleteUser(id: ID!): Auth
+  updateUserName(_id: ID!, username: String!): User
+  updateUserEmail(_id: ID!, email: String!): User
+  deleteUser(_id: ID!): User
   login(email:String!, password: String!):Auth
   postMessage(content: String!, clientOffset: String!): ID
 },
