@@ -39,8 +39,7 @@ const Signup = () => {
     // At least one special character from the set [@ $ ! % * ? &]
     // Minimum length of 8 characters
 
-    const passwordRegex =
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return passwordRegex.test(formState.password);
   };
 

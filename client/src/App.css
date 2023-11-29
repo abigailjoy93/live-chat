@@ -1,4 +1,17 @@
-/* body */
+#root {
+  --main: #4d4743;
+  --accent: #c7cac8;
+  --text: #0d0e10;
+  --pop: #bf8b46;
+  --second: #d8a762;
+  --light: #dadee0;
+}
+* {
+  box-sizing: border-box;
+  font-family: "Ysabeau Infant", sans-serif;
+  color: var(--pop);
+}
+
 body {
   height: calc(100vh - 5rem);
   margin-top: 5rem;
@@ -6,6 +19,99 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  display: grid;
+  place-content: center;
+  grid-template-rows: 80px 200px;
+}
+
+/* ChatApp and Header */
+
+/* navbar container - referrenced in Header.jsx*/
+.navbar {
+  top: -35vh;
+  width: 85vw;
+  height: 100px;
+  border: 3px solid var(--pop);
+  border-radius: 7px;
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  .connectButton {
+    position: absolute;
+    left: 7%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .navbar {
+    display: none;
+  }
+  .connectButton {
+    position: absolute;
+    left: 7%;
+  }
+  .logo {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    display: none;
+  }
+  button.connectButton {
+    position: absolute;
+    left: 7%;
+    height: auto;
+  }
+
+  .logo {
+    display: none;
+  }
+}
+
+.logo {
+  height: 20vh;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0d0e10;
+  padding: 10px;
+}
+
+.chatbox-header,
+.chatbox-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 25px;
+  background-color: var(--light);
+  border: 5px solid var(--main);
+  width: 100%;
+}
+
+.chatbox-header {
+  border-radius: 15px 15px 0px 0px;
+  margin-bottom: -10px;
+}
+
+.textbox-card {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light);
+  border: 5px solid var(--main);
+  border-radius: 0px 0px 15px 15px;
+  margin-top: -8px;
+  width: 110%;
+}
+
+.chatbox-card {
   color: var(--text);
   text-align: center;
 }
@@ -106,8 +212,64 @@ footer {
   border-color: var(--text);
   border-radius: 10px;
   color: var(--pop);
+  border: none;
+  border-radius: 5px;
 }
-.form-btn:hover {
+
+.connectButton {
+  cursor: pointer;
+  width: 85vw;
+  background-color: var(--second);
+  color: var(--main);
+  border: 3px solid var(--pop);
+  height: 85px;
+  margin: 0px;
+  position: absolute;
+  top: 17%;
+  font-size: 35px;
+}
+
+.connectButton:hover {
+  background-color: var(--pop);
+  color: var(--text);
+  border: 3px solid var(--pop);
+}
+
+.invalid-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* PROFILE CSS */
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutme-box,
+.aboutme-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
+  position: fixed;
+  right: 15px;
+}
+
+.aboutme-card {
+  background-color: var(--light);
+  height: auto;
+  width: 60vw;
+}
+
+.aboutme-contentcard {
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.aboutme-name {
   color: var(--text);
   background-color: var(--pop)
 }

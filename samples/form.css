@@ -4,12 +4,15 @@
   --text: #000000;
   --pop: #f5deb3;
   --light: #f4f0ec;
-  font-family: "Ysabeau Infant", sans-serif;
-  color: var(--pop);
 }
-
-body {
-  margin: 0;
+* {
+  box-sizing: border-box;
+  font-family: "Ysabeau Infant", sans-serif;
+  color: var(--text);
+}
+.container {
+  display: grid;
+  place-items: center;
 }
 
 button {
@@ -18,28 +21,24 @@ button {
   font-size: 15px;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-}
-
 .box {
-  width: 35vw;
-  height: 52vh;
+  width: 75%;
+  height: auto;
   border: 5px solid var(--accent);
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-bottom: 15px;
-  margin-top: 5px;
   background-color: var(--light);
+  padding: 2%;
+  margin: 2%;
 }
 
-.form {
-  padding: 5px;
+form {
+  display: grid;
+  place-items: center;
 }
 
 .boxtitle {
   font-size: 32px;
+  padding: 0px;
+  margin: -25%;
 }
 
 #first-name,
@@ -59,9 +58,8 @@ button {
 }
 
 .form-control {
-  height: 28px;
-  width: 30vw;
-  align-items: center;
+  height: 125%;
+  width: 100%;
   border: 2px solid var(--pop);
 }
 

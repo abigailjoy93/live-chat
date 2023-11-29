@@ -1,11 +1,9 @@
-:root {
-  --main: #e08d3c;
-  --accent: #3d0c02;
-  --text: #000000;
-  --pop: #f5deb3;
-  --light: #f4f0ec;
-  font-family: "Ysabeau Infant", sans-serif;
-  color: var(--pop);
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 10%;
 }
 
 main {
@@ -13,101 +11,237 @@ main {
   flex-direction: column;
 }
 
-.aboutme-box,
-.aboutme-container {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -30px;
-  position: fixed;
-  right: 15px;
-}
-
-.aboutme-card {
+.aboutmecard {
   background-color: var(--light);
   height: auto;
-  width: 60vw;
+  width: 100%;
+  margin: 10%;
 }
 
-.aboutme-contentcard {
-  padding-bottom: 15px;
+.contentcard {
+  padding-bottom: 3%;
   display: flex;
-  flex-direction: row;
-}
-
-.aboutme-name {
-  color: var(--text);
-  font-size: 50px;
-  margin-bottom: -75px;
-}
-
-.aboutme-userimagecard {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-top: -75px;
+}
+h2 {
+  margin: 0px;
+}
+.name {
+  color: var(--text);
+  font-size: 75px;
 }
 
-.userkitty-image {
-  max-width: 15vw;
+.aboutmebox,
+.aboutmecontainer {
+  display: flex;
+  justify-content: center;
+  width: 98%;
+}
+
+.userimage {
+  max-width: 98%;
   height: auto;
-  margin: 15px;
-  padding: 15px;
+  margin: 5%;
+  padding: 2%;
   border: solid 3px var(--main);
 }
 
 ul {
   list-style-type: none;
-}
-
-.aboutme-username,
-.aboutme-emailaddress {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  border: solid 3px var(--main);
-  padding: 3px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.aboutme-changeusername,
-.aboutme-changeemailaddress {
-  position: fixed;
+.section1,
+.section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+}
+
+.userName,
+.emailAddress {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid 3px var(--main);
+  width: 225px;
+}
+
+.changeusername,
+.changeemailaddress {
   border: solid 3px var(--main);
   background-color: var(--pop);
-  padding: 3px;
-  margin-top: -5px;
+  width: 225px;
 }
 
-.aboutme-changeusername {
-  right: 100px;
+.delete {
+  margin: 2%;
+  margin-top: 5%;
+  width: 75%;
 }
 
-.aboutme-changeemailaddress {
-  right: 85px;
-}
-
-.aboutme-delete {
-  margin: 15px;
-  margin-top: 35px;
-}
-
-.aboutme-deletebutton {
+.deletebutton {
   height: auto;
   border: solid 3px var(--main);
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 1% 10%;
   background-color: var(--pop);
   font-size: larger;
 }
 
-.aboutme-footer {
-  position: fixed;
-  bottom: 0px;
-  margin: auto;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .aboutmecard {
+    width: 95%;
+    margin: 5%;
+  }
+
+  .name {
+    font-size: 350%;
+  }
+
+  .changeusername,
+  .changeemailaddress {
+    margin-top: 3%;
+  }
 }
 
-.aboutme-logo {
-  height: 175px;
-  width: auto;
-  margin-left: 600px;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .userimagecard {
+    margin-top: -15%;
+  }
+
+  ul {
+    margin: 0;
+    margin-left: -7%;
+  }
+
+  .userName,
+  .emailAddress {
+    font-size: large;
+  }
 }
 
-/* end about me */
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .userimagecard {
+    margin-top: -15%;
+  }
+
+  ul {
+    margin-left: -6%;
+  }
+
+  .changeusername,
+  .changeemailaddress {
+    margin-top: 3%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  main {
+    background-image: url("./assets/astronaut.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  main {
+    flex-direction: row;
+  }
+
+  .contentcard {
+    flex-direction: row;
+  }
+
+  .userimage {
+    max-width: 45%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  body {
+    margin: 5%;
+  }
+
+  .contentcard {
+    padding-bottom: 3%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  h2 {
+    margin: 0px;
+  }
+  .name {
+    color: var(--text);
+    font-size: 75px;
+  }
+
+  .aboutmebox,
+  .aboutmecontainer {
+    display: flex;
+    justify-content: center;
+    width: 98%;
+  }
+
+  .userimage {
+    max-width: 98%;
+    height: auto;
+    margin: 5%;
+    padding: 2%;
+    border: solid 3px var(--main);
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section1,
+  .section2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+  }
+
+  .userName,
+  .emailAddress {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid 3px var(--main);
+    width: 225px;
+  }
+
+  .changeusername,
+  .changeemailaddress {
+    border: solid 3px var(--main);
+    background-color: var(--pop);
+    width: 225px;
+  }
+
+  .delete {
+    margin: 2%;
+    margin-top: 5%;
+    width: 75%;
+  }
+
+  .deletebutton {
+    height: auto;
+    border: solid 3px var(--main);
+    padding: 1% 10%;
+    background-color: var(--pop);
+    font-size: larger;
+  }
+}
