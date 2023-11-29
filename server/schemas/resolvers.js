@@ -4,11 +4,11 @@ const { signToken, AuthenticationError } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate("users");
+      return User.find();
     },
 
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("users");
+      return User.findOne({ username });
     },
 
     me: async (parent, args, context) => {
@@ -18,14 +18,17 @@ const resolvers = {
       throw AuthenticationError;
     },
 
-    // searchUsers: async (_, { query }) => {
-    //   try {
-    //     const users = await User.find({ username: { $regex: query, $options: 'i' } });
-    //     return users;
-    //   } catch (error) {
-    //     console.error(error);
-    //     throw new Error('Error searching users');
-    //   }
+    searchUsers: async (_, { query }) => {
+      try {
+        const users = await User.find({
+          username: { $regex: query, $options: "i" },
+        });
+        return users;
+      } catch (error) {
+        console.error(error);
+        throw new Error("Error searching users");
+      }
+    },
 
     // socket.io messages
     messages: async () => await Message.find(),
@@ -38,36 +41,35 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUserName: async ({ id, username }) => {
+    updateUserName: async ( parent, { id, username } ) => {
       const user = await User.findOneAndUpdate(
         { _id: id },
-        { $set: { username } },
+        { $set: { username: username } },
         { new: true }
       );
 
-      const token = signToken(user);
-      return { token, user };
+      return user ;
     },
-    updateUserEmail: async ({ id, email }) => {
+    updateUserEmail: async ( parent, { id, email } ) => {
       const user = await User.findOneAndUpdate(
         { _id: id },
-        { $set: { email } },
+        { $set: { email: email } },
         { new: true }
       );
 
-      const token = signToken(user);
-      return { token, user };
+      return user;
     },
-    deleteUser: async ({ id }) => {
+    deleteUser: async (_, { id }) => {
       try {
         const user = await User.findOneAndDelete({ _id: id });
+
+        console.log(user)
 
         if (!user) {
           return { error: "User not found" };
         }
 
-        const token = signToken(user);
-        return { token, user };
+        return user;
       } catch (error) {
         return { error: "Error deleting user" };
       }

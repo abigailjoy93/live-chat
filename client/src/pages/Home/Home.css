@@ -1,0 +1,101 @@
+/* container */
+
+.home-container {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-evenly;
+  /* flex-flow: column; */
+  align-items: center;
+}
+
+@media only screen and (max-width: 1600px) {
+  .home-container {
+    flex-flow: column;
+    justify-content: space-around;
+  }
+
+}
+
+
+/* form */
+
+.form-box {
+  width: 35vw;
+  height: 52vh;
+  border: 5px solid var(--accent);
+  border-radius: 15px;
+  background-color: var(--light);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.box-title {
+  font-size: 32px;
+}
+
+.form-box-label {
+  font-size: 1.2rem;
+}
+
+.form-control {
+  border: 2px solid var(--pop);
+}
+
+.home-button {
+  padding: 3px;
+  height: 35px;
+  width: 100px;
+  font-size: 15px;
+}
+
+.remember,
+.requirements {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+<<<<<<< Updated upstream=======
+/* #first-name,
+#last-name {
+  width: 15vw;
+} */
+
+/* #first-name-text,
+#last-name-text {
+  margin: 75px;
+} */
+
+/* .email,
+.password,
+.name,
+.username {
+  font-size: 15px;
+} */
+
+/* .name-inputs {
+  display: flex;
+  justify-content: space-between;
+} */
+
+/* .name-label {
+  margin: 0 10px;
+} */
+
+/* .email,
+.username,
+.password {
+  margin-top: 10px;
+} */
+
+/* .invalid-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+} */
+>>>>>>>Stashed changes

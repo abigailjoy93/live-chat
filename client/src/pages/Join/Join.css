@@ -1,0 +1,17 @@
+.join-btn {
+  width: 25vw;
+  height: 25vh;
+  margin-top: 7rem;
+  margin-left: 35rem;
+  background-color: var(--accent);
+  color: var(--text);
+  border-radius: 20px;
+}
+
+.join-btn-text {
+  font-size: 35px;
+}
+
+.join-btn:hover {
+  background-color: var(--pop);
+}

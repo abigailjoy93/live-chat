@@ -1,0 +1,48 @@
+.aboutme-container {
+  /* margin-left: auto;
+  margin-right: auto; */
+  margin: 15rem;
+}
+
+.aboutme-card {
+  background-color: var(--light);
+  height: 55vh;
+  width: 60vw;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  border: 5px solid var(--accent);
+  border-radius: 15px;
+}
+
+.aboutme-image {
+  height: 25rem;
+  width: 25rem;
+  border: solid 3px var(--main);
+  border-radius: 10px;
+  display: flex;
+}
+
+.userkittyimage {
+  height: 20rem;
+  width: 20rem;
+  margin: auto;
+}
+
+.aboutme-list {
+  list-style-type: none;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.aboutme-listitem {
+  width: 40rem;
+  border: solid 2px var(--main);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.aboutme-btn {
+  padding: 10px;
+}
+

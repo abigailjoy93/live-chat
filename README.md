@@ -24,9 +24,9 @@ N/A
 To use the application from the command line (after installing dependencies):
 
 1. open the root directory in the terminal/bash
-2. npm builld
+2. npm build
 3. npm start
-4. go to the portal on local host or vist the Heroku link : [link here]
+4. go to the portal on local host or vist the Heroku link : https://live-chatproject3-1570f7561a68.herokuapp.com/
 5. Check out our live-chat application
 
 ## Collaborators:

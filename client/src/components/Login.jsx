@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
-import "../App.css";
+import "../pages/Home/Home.css";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -11,6 +11,8 @@ const Login = (props) => {
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
+
+    console.log("!!!")
 
     setFormState({
       ...formState,
@@ -40,32 +42,50 @@ const Login = (props) => {
   };
 
   return (
-    <main className="container">
-      <div className="box">
-        <h4 className="title">Log On:</h4>
-        <div className="form">
-          <form onSubmit={handleFormSubmit}>
-            <div className="formGroup">
-              <label htmlFor="email" className="email">
-                Email address:
-              </label>
-              <input className="formControl" placeholder="Your email" name="email" type="email" value={formState.email} onChange={handleChange} />
-              <br />
-              <label htmlFor="pwd" className="password">
-                Password:
-              </label>
-              <input className="formControl" placeholder="******" name="password" type="password" value={formState.password} onChange={handleChange} />
-              <label className="remember">
-                <input type="checkbox" /> Remember me
-              </label>
-              <button type="submit" className="button btn-primary">
-                Login
-              </button>
-            </div>
-          </form>
+    <section className="form-box">
+      <form className="form" onSubmit={handleFormSubmit}>
+        <h4 className="box-title">Already Have an Account?</h4>
+        <label htmlFor="form-box" className="form-box-label">
+          Log On
+        </label>
+        <div className="form-group">
+          <label htmlFor="email" className="email-label">
+            Email address:
+          </label>
+          <input
+            className="form-control"
+            placeholder="Your email"
+            id="log-email"
+            name="email"
+            type="email"
+            value={formState.email}
+            onChange={handleChange}
+          />
         </div>
-      </div>
-    </main>
+        <div className="form-group">
+          <label htmlFor="log-pwd" className="password-label">
+            Password:
+          </label>
+          <input
+            className="form-control"
+            placeholder="******"
+            id="log-pwd"
+            name="password"
+            type="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label className="remember">
+            <input type="checkbox" /> Remember me
+          </label>
+        </div>
+        <button type="submit" className="form-btn">
+          Login
+        </button>
+      </form>
+    </section>
   );
 };
 
