@@ -38,6 +38,16 @@ class AuthService {
     localStorage.removeItem("id_token");
     window.location.assign("/");
   }
+
+  getUserFromToken(token) {
+    try {
+      const decoded = decode(token);
+      return decoded;
+    } catch (error) {
+      console.error("Error decoding token", error);
+      return null;
+    }
+  }
 }
 
 export default new AuthService();
