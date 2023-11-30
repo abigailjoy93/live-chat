@@ -13,6 +13,10 @@ const Search = () => {
     }
   };
 
+  const cancelSearch = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="searchbox">
       <div className="search-display">
@@ -30,16 +34,19 @@ const Search = () => {
       {loading && <p>Loading...</p>}
 
       {data && data.searchUsers && (
-        <ul className="result-list">
-          {data.searchUsers.map((user) => (
-            <li key={user._id}>
-              <div className="user-details">
-                <h5 className="result username-result">{user.username}</h5>
-                <p className="result email-result">{user.email}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="row">
+          <button className="col nav-btn" onClick={cancelSearch}>Cancel</button>
+          <ul className=" col result-list">
+            {data.searchUsers.map((user) => (
+              <li key={user._id}>
+                <div className="user-details">
+                  <h5 className="result username-result">{user.username}</h5>
+                  <p className="result email-result">{user.email}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );

@@ -34,18 +34,18 @@ const Profile = () => {
             <p>
               User Name: <strong>{user.username}</strong>
             </p>
-            <UpdateUserName userId={userId}/>
+            {/* <UpdateUserName userId={userId}/> */}
           </li>
           <br></br>
           <li className="aboutme-listitem">
             <p>
               Email Address: <strong>{user.email}</strong>
             </p>
-            <UpdateUserEmail userId={userId}/>
+            {/* <UpdateUserEmail userId={userId}/> */}
           </li>
           <br></br>
           <li className="">
-            <DeleteUser userId={userId}/>
+            {/* <DeleteUser userId={userId}/> */}
           </li>
         </ul>
       </div>
